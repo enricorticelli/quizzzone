@@ -1,0 +1,37 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: quizzzone_postgres
+    env_file:
+      - .env
+    environment:
+      POSTGRES_DB: quizzzone
+      POSTGRES_USER: quizzzone
+      POSTGRES_PASSWORD: quizzzone
+    volumes:
+      - postgres_data_dev:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  web:
+    build: .
+    container_name: quizzzone_web
+    env_file:
+      - .env
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    command: >
+      sh -c "python manage.py migrate &&
+             python manage.py collectstatic --noinput &&
+             daphne -b 0.0.0.0 -p 8000 quizzzone.asgi:application"
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  postgres_data_dev:

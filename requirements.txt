@@ -1,0 +1,8 @@
+Django==5.0.14
+qrcode==8.2
+Pillow==11.3.0
+gunicorn==23.0.0
+psycopg2-binary==2.9.9
+whitenoise==6.8.2
+channels==4.2.0
+daphne==4.1.2

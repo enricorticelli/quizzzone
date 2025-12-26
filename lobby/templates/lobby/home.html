@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entra in una stanza • Quizzzone</title>
+    <link rel="stylesheet" href="{% static 'lobby/style.css' %}">
+</head>
+<body>
+    <div class="page">
+        <header class="hero">
+            <div class="hero__text">
+                <p class="eyebrow">Quizzzone!</p>
+                <h1>Entra o ricollegati</h1>
+                <p class="subtitle">Vai su questo sito ed inserisci il codice stanza e il nickname.</p>
+            </div>
+        </header>
+
+        <main class="grid">
+            <section class="card join-card full-width">
+                <div class="card__header">
+                    <h2>Inserisci il codice stanza</h2>
+                    <p class="muted">Usa il codice condiviso dall'host. Se avevi già aperto la stanza su questo dispositivo ti ricollegherai automaticamente.</p>
+                </div>
+                <form method="post" class="join-form">
+                    {% csrf_token %}
+                    <label for="code">Codice stanza</label>
+                    <input type="text" id="code" name="code" maxlength="8" placeholder="Es. 4BSQXZ" value="{{ code_value }}" required>
+                    {% if code_error %}
+                        <div class="form-error">{{ code_error }}</div>
+                    {% endif %}
+                    <button type="submit" class="primary-btn">Continua</button>
+                </form>
+                <p class="muted">Dopo aver inserito il codice sceglierai nickname e icona.</p>
+            </section>
+            {% if recent_room %}
+            <section class="card join-card full-width">
+                <div class="card__header">
+                    <h2>Ricollegati alla tua stanza</h2>
+                    <p class="muted">Hai già partecipato alla stanza <strong>{{ recent_room.code }}</strong> con questo dispositivo. Puoi rientrare direttamente.</p>
+                </div>
+                <div class="actions">
+                    <a class="primary-btn" href="{% url 'join_room' code=recent_room.code %}">Rientra nella stanza {{ recent_room.code }}</a>
+                </div>
+            </section>
+            {% endif %}
+        </main>
+    </div>
+</body>
+</html>

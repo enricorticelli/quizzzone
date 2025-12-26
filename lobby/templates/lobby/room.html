@@ -1,0 +1,228 @@
+{% load static lobby_extras %}
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quizzzone! Lobby</title>
+    <link rel="stylesheet" href="{% static 'lobby/style.css' %}?v=2">
+</head>
+<body>
+    <div class="page" data-room="{{ room.code }}">
+        <header class="hero">
+            <div class="hero__text">
+                <p class="eyebrow">Quizzzone!</p>
+                {% if players_count == 0 %}
+                    <h1>Lobby in attesa di giocatori</h1>
+                    <p class="subtitle">Condividi il QR o il codice con i tuoi amici. Massimo 10 giocatori.</p>
+                {% elif can_start %}
+                    <h1>Lobby pronta</h1>
+                    <p class="subtitle">Ci sono abbastanza giocatori. L'host può avviare il gioco.</p>
+                {% else %}
+                    <h1>Lobby in attesa</h1>
+                    <p class="subtitle">Servono almeno 2 giocatori prima di partire.</p>
+                {% endif %}
+                <div class="code-pill">
+                    <span>Codice stanza</span>
+                    <strong>{{ room.code }}</strong>
+                </div>
+            </div>
+            <div class="hero__cta">
+                {% if not players %}
+                    <p class="muted">Nessun giocatore collegato. Invia il QR o il link per farli entrare.</p>
+                {% elif host %}
+                    <p class="muted">
+                        {% if can_start %}
+                            L'host <strong>{{ host.nickname }}</strong> può avviare il gioco quando è pronto (dal suo dispositivo).
+                        {% else %}
+                            Manca ancora un giocatore per partire. L'host è <strong>{{ host.nickname }}</strong>.
+                        {% endif %}
+                    </p>
+                {% else %}
+                    <p class="muted">Il primo che entra diventa l'host.</p>
+                {% endif %}
+            </div>
+        </header>
+
+        <main class="grid">
+            <section class="card qr-card">
+                <div class="card__header">
+                    <h2>Invita</h2>
+                    <p class="muted">Scansiona il QR oppure vai su <strong>{{ entry_url }}</strong> e inserisci codice e nickname.</p>
+                </div>
+                <div class="qr-wrapper">
+                    <img src="{{ qr_data_url }}" alt="QR code per entrare" class="qr-image">
+                    <div class="join-link">
+                        <p class="muted">Chi è già entrato può riaprire la pagina e ricollegarsi con lo stesso dispositivo.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="card join-card">
+                <div class="card__header">
+                    <h2>Come entrare</h2>
+                    <p class="muted">Inquadra il QR o apri il link su smartphone per scegliere nickname e icona.</p>
+                    {% if current_player %}
+                        <p class="muted success">Sei dentro come <strong>{{ current_player.nickname }}</strong> ({{ icon_emoji|get_item:current_player.icon }}).</p>
+                    {% elif is_full %}
+                        <p class="muted error">Stanza piena. Aspetta che qualcuno esca.</p>
+                    {% endif %}
+                </div>
+            </section>
+
+            <section class="card players-card">
+                <div class="card__header">
+                    <h2 id="players-counter">Giocatori ({{ players_count }}/{{ max_players }})</h2>
+                    <p class="muted">Niente nomi o icone duplicate.</p>
+                </div>
+                <div class="players-grid" id="players-grid">
+                    {% if players %}
+                        {% for player in players %}
+                            <div class="player-chip {% if player.session_key == request.session.session_key %}me{% endif %} {% if player == host %}host{% endif %}">
+                                <span class="player-icon">{{ icon_emoji|get_item:player.icon }}</span>
+                                <span class="player-name">
+                                    {{ player.nickname }}
+                                </span>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <p class="muted empty-state">Ancora nessuno. Invia il codice!</p>
+                    {% endif %}
+                </div>
+            </section>
+        </main>
+    </div>
+    {{ icon_emoji|json_script:"iconLookupData" }}
+    <script>
+        const iconLookup = JSON.parse(document.getElementById("iconLookupData").textContent);
+        const roomCode = document.querySelector(".page").dataset.room;
+        const stateUrl = "{{ state_url }}";
+        let socket;
+        let fallbackTimer;
+
+        function connectSocket() {
+            const scheme = window.location.protocol === "https:" ? "wss" : "ws";
+            socket = new WebSocket(`${scheme}://${window.location.host}/ws/stanza/${roomCode}/`);
+
+            socket.onopen = () => {
+                socket.send("ping");
+            };
+
+            socket.onmessage = (event) => {
+                try {
+                    const data = JSON.parse(event.data);
+                    if (data.type === "room_state") {
+                        renderState(data);
+                    }
+                } catch (e) {
+                    console.error("Invalid WS data", e);
+                }
+            };
+
+            socket.onclose = () => {
+                // fallback polling when WS is down
+                if (!fallbackTimer) fallbackPoll();
+                setTimeout(connectSocket, 2000);
+            };
+            socket.onerror = () => {
+                socket.close();
+            };
+        }
+
+        function fallbackPoll() {
+            fallbackTimer = setTimeout(async () => {
+                try {
+                    const res = await fetch(stateUrl, { cache: "no-store" });
+                    if (res.ok) {
+                        const data = await res.json();
+                        renderState(data);
+                    }
+                } catch (e) {
+                    // ignore
+                } finally {
+                    fallbackPoll();
+                }
+            }, 4000);
+        }
+
+        function renderState(state) {
+            if (state.started && state.room) {
+                window.location.href = "{{ game_url }}";
+                return;
+            }
+            updateHeader(state);
+            updatePlayers(state);
+        }
+
+        function updateHeader(state) {
+            const headerTitle = document.querySelector("h1");
+            const subtitle = document.querySelector(".subtitle");
+            if (!headerTitle || !subtitle) return;
+            if (state.players_count === 0) {
+                headerTitle.textContent = "Lobby in attesa di giocatori";
+                subtitle.textContent = "Condividi il QR o il codice con i tuoi amici. Massimo 10 giocatori.";
+            } else if (state.can_start) {
+                headerTitle.textContent = "Lobby pronta";
+                subtitle.textContent = "Ci sono abbastanza giocatori. L'host può avviare il gioco.";
+            } else {
+                headerTitle.textContent = "Lobby in attesa";
+                subtitle.textContent = "Servono almeno 2 giocatori prima di partire.";
+            }
+
+            const heroCta = document.querySelector(".hero__cta");
+            if (heroCta) {
+                heroCta.innerHTML = "";
+                const p = document.createElement("p");
+                p.className = "muted";
+                if (state.players_count === 0) {
+                    p.textContent = "Nessun giocatore collegato. Invia il QR o il link per farli entrare.";
+                } else if (state.host) {
+                    if (state.can_start) {
+                        p.innerHTML = `L'host <strong>${state.host}</strong> può avviare il gioco quando è pronto (dal suo dispositivo).`;
+                    } else {
+                        p.innerHTML = `Manca ancora un giocatore per partire. L'host è <strong>${state.host}</strong>.`;
+                    }
+                } else {
+                    p.textContent = "Il primo che entra diventa l'host.";
+                }
+                heroCta.appendChild(p);
+            }
+        }
+
+        function updatePlayers(state) {
+            const counter = document.getElementById("players-counter");
+            const grid = document.getElementById("players-grid");
+            if (counter) counter.textContent = `Giocatori (${state.players_count}/${state.max_players})`;
+            if (!grid) return;
+            grid.innerHTML = "";
+            if (!state.players || state.players.length === 0) {
+                const empty = document.createElement("p");
+                empty.className = "muted empty-state";
+                empty.textContent = "Ancora nessuno. Invia il codice!";
+                grid.appendChild(empty);
+                return;
+            }
+            state.players.forEach(player => {
+                const chip = document.createElement("div");
+                chip.className = "player-chip";
+                if (player.is_me) chip.classList.add("me");
+                if (player.is_host) chip.classList.add("host");
+
+                const icon = document.createElement("span");
+                icon.className = "player-icon";
+                icon.textContent = iconLookup[player.icon] || player.icon;
+
+                const name = document.createElement("span");
+                name.className = "player-name";
+                name.textContent = player.nickname + " ";
+
+                chip.appendChild(icon);
+                chip.appendChild(name);
+                grid.appendChild(chip);
+            });
+        }
+
+        connectSocket();
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+env/
+venv/
+
+# Django / Python
+*.log
+db.sqlite3
+media/
+staticfiles/
+
+# Env files
+.env
+
+# IDE / Editor
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Pytest / coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Migrations pyc
+lobby/migrations/__pycache__/
+
+# Docker
+*.pid
+

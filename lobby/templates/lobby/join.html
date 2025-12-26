@@ -1,0 +1,189 @@
+{% load static lobby_extras %}
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entra in {{ room.code }} • Quizzzone</title>
+    <link rel="stylesheet" href="{% static 'lobby/style.css' %}?v=2">
+</head>
+<body>
+    <div class="page">
+        <header class="hero">
+            <div class="hero__text">
+                <p class="eyebrow">Quizzzone!</p>
+                <h1>Entra nella stanza</h1>
+                <p class="subtitle">Codice <strong>{{ room.code }}</strong> — {{ players_count }}/{{ max_players }} giocatori</p>
+            </div>
+            <div class="hero__cta" id="host-cta">
+                {% if host and current_player and host == current_player %}
+                    <form method="post" action="{{ start_url }}">
+                        {% csrf_token %}
+                        <button class="primary-btn" type="submit" {% if not can_start %}disabled title="Servono almeno 2 giocatori"{% endif %}>Gioca ▶</button>
+                    </form>
+                    <p class="{% if can_start %}muted success{% else %}muted{% endif %}">
+                        {% if can_start %}Puoi avviare il gioco.{% else %}Aspetta almeno un altro giocatore.{% endif %}
+                    </p>
+                {% else %}
+                    <p class="muted">
+                        {% if host %}
+                            {{ host.nickname }} è l'host. Il primo che entra è sempre l'host.
+                        {% else %}
+                            Il primo che entra diventa l'host e potrà avviare il gioco.
+                        {% endif %}
+                    </p>
+                {% endif %}
+            </div>
+        </header>
+
+        <main class="grid">
+            <section class="card join-card full-width">
+                <div class="card__header">
+                {% if current_player %}
+                    <p class="muted success">Sei dentro come <strong>{{ current_player.nickname }}</strong> ({{ icon_emoji|get_item:current_player.icon }}). Resta qui: la partita partirà da questa schermata. Se hai chiuso la pagina puoi tornare qui con lo stesso dispositivo per ricollegarti.</p>
+                    <form method="post" action="{{ leave_url }}" class="leave-form">
+                        {% csrf_token %}
+                        <button type="submit" class="secondary-btn">Esci dalla stanza</button>
+                    </form>
+                {% elif is_full %}
+                    <p class="muted error">Stanza piena. Aspetta che qualcuno esca.</p>
+                {% else %}
+                    <h2>Inserisci i tuoi dati</h2>
+                    <p class="muted">Nome e icona devono essere diversi dagli altri. Il primo che entra diventa l'host.</p>
+                {% endif %}
+                </div>
+
+                {% if not current_player and not is_full and not room.started %}
+                    <form method="post" class="join-form">
+                        {% csrf_token %}
+                        <label for="{{ form.nickname.id_for_label }}">Nickname</label>
+                        {{ form.nickname }}
+                        <div class="icons-label">Icona</div>
+                        <div class="icons-grid">
+                            {% for value, label in form.icon.field.choices %}
+                                <label class="icon-pill {% if value not in available_icons %}icon-disabled{% endif %}">
+                                    <input type="radio" name="{{ form.icon.html_name }}" value="{{ value }}" {% if selected_icon == value %}checked{% endif %} {% if value not in available_icons %}disabled{% endif %}>
+                                    <span class="icon-emoji">{{ icon_emoji|get_item:value }}</span>
+                                    <span class="icon-name">{{ label }}</span>
+                                </label>
+                            {% endfor %}
+                        </div>
+                        {% if form.non_field_errors %}
+                            <div class="form-error">
+                                {% for error in form.non_field_errors %}{{ error }}{% endfor %}
+                            </div>
+                        {% endif %}
+                        {% for field in form %}
+                            {% for error in field.errors %}
+                                <div class="form-error">{{ error }}</div>
+                            {% endfor %}
+                        {% endfor %}
+                        <button type="submit" class="primary-btn">Entra</button>
+                    </form>
+                {% endif %}
+            </section>
+        </main>
+    </div>
+    {{ icon_lookup|json_script:"iconLookupData" }}
+    <script>
+        const iconLookup = JSON.parse(document.getElementById("iconLookupData").textContent);
+        const roomCode = "{{ room.code }}";
+        const stateUrl = "{{ state_url }}";
+        let socket;
+        let fallbackTimer;
+
+        function connectSocket() {
+            const scheme = window.location.protocol === "https:" ? "wss" : "ws";
+            socket = new WebSocket(`${scheme}://${window.location.host}/ws/stanza/${roomCode}/`);
+            socket.onopen = () => socket.send("ping");
+            socket.onmessage = (event) => {
+                try {
+                    const data = JSON.parse(event.data);
+                    if (data.type === "room_state") updateState(data);
+                } catch (e) {
+                    console.error("Invalid WS data", e);
+                }
+            };
+            socket.onclose = () => {
+                if (!fallbackTimer) fallbackPoll();
+                setTimeout(connectSocket, 2000);
+            };
+            socket.onerror = () => socket.close();
+        }
+
+        function fallbackPoll() {
+            fallbackTimer = setTimeout(async () => {
+                try {
+                    const res = await fetch(stateUrl, { cache: "no-store" });
+                    if (res.ok) {
+                        const data = await res.json();
+                        updateState(data);
+                    }
+                } catch (e) {
+                    // ignore
+                } finally {
+                    fallbackPoll();
+                }
+            }, 4000);
+        }
+
+        function updateState(state) {
+            if (state.started && state.room) {
+                window.location.href = "{{ game_url }}";
+                return;
+            }
+            const subtitle = document.querySelector(".subtitle");
+            const header = document.querySelector(".card__header");
+            if (subtitle && state.players_count !== undefined) {
+                subtitle.textContent = `Codice ${state.room} — ${state.players_count}/${state.max_players} giocatori`;
+            }
+            if (header && state.host) {
+                const info = header.querySelector(".live-status") || document.createElement("p");
+                info.className = "muted live-status";
+                info.textContent = state.host_is_me
+                    ? "Sei l'host. Resta qui: riceverai le domande quando il gioco parte."
+                    : `${state.host} è l'host. Resta qui: riceverai le domande quando il gioco parte.`;
+                if (!header.contains(info)) header.appendChild(info);
+            }
+
+            const cta = document.getElementById("host-cta");
+            if (cta) {
+                cta.innerHTML = "";
+                if (state.host_is_me) {
+                    const form = document.createElement("form");
+                    form.method = "post";
+                    form.action = "{{ start_url }}";
+                    form.innerHTML = `{% csrf_token %}`;
+                    const btn = document.createElement("button");
+                    btn.className = "primary-btn";
+                    btn.type = "submit";
+                    btn.textContent = "Gioca ▶";
+                    if (!state.can_start) {
+                        btn.disabled = true;
+                        btn.title = "Servono almeno 2 giocatori";
+                    }
+                    form.appendChild(btn);
+                    const p = document.createElement("p");
+                    p.className = state.can_start ? "muted success" : "muted";
+                    p.textContent = state.can_start
+                        ? "Puoi avviare il gioco."
+                        : "Aspetta almeno un altro giocatore.";
+                    cta.appendChild(form);
+                    cta.appendChild(p);
+                } else {
+                    const p = document.createElement("p");
+                    p.className = "muted";
+                    if (state.host) {
+                        p.textContent = `${state.host} è l'host. Il primo che entra è sempre l'host.`;
+                    } else {
+                        p.textContent = "Il primo che entra diventa l'host e potrà avviare il gioco.";
+                    }
+                    cta.appendChild(p);
+                }
+            }
+        }
+
+        connectSocket();
+    </script>
+</body>
+</html>
