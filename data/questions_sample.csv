@@ -1,0 +1,501 @@
+category,difficulty,text,option_a,option_b,option_c,correct_option,is_active
+storia,1,"John Moses Browning, il designer del M1918 BAR (Browning Automatic Rifle) faceva parte della religione?",Mormoni,Cattolica,Ebraico,A,True
+storia,2,In che strada ha cominciato il Grande Fuoco di Londra del 1666?,Baker Street,Case del Parlamento,Pudding Lane,C,True
+storia,3,Chi era l'ultimo imperatore romano nell'anno dei quattro imperatori (69 d.C.)?,Otho,Vespasiano,Vitellius,B,True
+storia,4,Quale dei paesi seguenti non era un potere asse durante la seconda guerra mondiale?,Germania,Italia,Unione Sovietica,C,True
+storia,5,"Lo zar Bomba, la più potente bomba nucleare mai testata, aveva una resa di 50 megatoni ma teoricamente aveva un rendimento massimo di quanto?",200 Megatons,75 Megatons,100 Megatons,C,True
+storia,1,Quante sonate hanno scritto Ludwig van Beethoven?,31,32,50,B,True
+storia,2,Che anno furono le Riforma Mariane istituite nella Repubblica Romana?,264 BCE,42 BCE,107 BCE,C,True
+storia,3,Quale missione Apollo era l'ultima nel programma Apollo della NASA?,Apollo 17,Apollo 11,Apollo 13,A,True
+storia,4,La corona dell'Empire State Building è stata originariamente costruita per quale scopo?,Rod fulmine,Airship Dock,Antenna,B,True
+storia,5,Dove e quando è stata la prima scatola di cartone fatta per uso industriale?,"Stati Uniti, 1817","Inghilterra, 1817","Inghilterra, 1917",B,True
+storia,1,Quale conflitto storico ha ucciso la maggior parte delle persone?,Ribellione su misura,Guerra di tre regni,Seconda guerra mondiale,C,True
+storia,2,Quali paesi hanno partecipato alla guerra dell'aragosta?,Francia e Brasile,Canada e Norvegia,Australia e Nuova Zelanda,A,True
+storia,3,Il crollo dell'Unione Sovietica ha avuto luogo in quale anno?,1992,1891,1991,C,True
+storia,4,Com'e' stato giustiziato Socrate?,Squadra di cablaggio,Veleno,Decapitazione,B,True
+storia,5,In quale paese nacque Josef Stalin?,Germania,Russia,Georgia,C,True
+storia,1,L'Agia Sophia fu commissionata da quale imperatore dell'Impero bizantino?,Arcadius,Costantino IV,Justinian I,C,True
+storia,2,Quali dei seguenti fisici hanno aiutato la Germania nazista nella produzione di un'arma nucleare?,Albert Einstein,Werner Heisenberg,John von Neumann,B,True
+storia,3,In che anno si è verificato il North American Video Game Crash?,1983,1982,1993,A,True
+storia,4,Quando fu nominato Cancelliere della Germania Adolf Hitler?,27 febbraio 1933,30 gennaio 1933,1 settembre 1939,B,True
+storia,5,"In che anno Skoal, una società di tabacco senza fumo, ha rilasciato la loro prima linea di Pouches, conosciuta come ""Skoal Bandits""?",1934,1984,1983,C,True
+storia,1,Il pantheon a Roma era usato per adorare quale dio?,Qualsiasi dio volessero,Zeus,Atena,A,True
+storia,2,"Durante la seconda guerra mondiale, nel 1945, gli Stati Uniti lasciarono le bombe atomiche sulle due città giapponesi di Hiroshima e quale altra città?",Tokyo,Nagasaki,Kawasaki,B,True
+storia,3,"Chi si crede sia stato il primo europeo a ""scoprire"" la terra della Nuova Zelanda?",Cristoforo Colombo,Jeanne Baré,Abel Tasman,C,True
+storia,4,Cos'e' successo il 6 giugno 1944?,Bombe atomiche di Hiroshima e Nagasaki,D-Day,Attacco a Pearl Harbor,B,True
+storia,5,Chi era il primo americano nello spazio?,John Glenn,Alan Shephard,Neil Armstrong,B,True
+storia,1,In che anno è stata fondata la società di videogiochi Electronic Arts?,1999,1981,1982,C,True
+storia,2,Quale di questi non è nella famiglia indoeuropea?,Hindi,Finlandia,Inglese,B,True
+storia,3,"Quale famoso comandante militare marciò un esercito, che includeva elefanti di guerra, sulle Alpi durante la seconda guerra punica?",Alessandro il Grande,Garmanicus,Annibale,C,True
+storia,4,"Durante quale guerra si è verificata la ""crisi missilistica cubana""?",Seconda guerra mondiale,Guerra fredda,Prima guerra mondiale,B,True
+storia,5,"Qual era il nome di uno dei palazzi sopravvissuti di Enrico VIII situato vicino a Richmond, Londra?",Palazzo di San Giacomo,Hampton Court,Buckingham Palace,B,True
+storia,1,Qual era il nome dell'anello spia che ha aiutato gli Stati Uniti a vincere la guerra rivoluzionaria?,New York Spy Ring,Spie di Washington,Anello di Culper,C,True
+storia,2,In quale dialogo Socrate si difese alla corte di Atene?,Le leggi,Le scuse,L'Euritofo,B,True
+storia,3,Quando Napoleone Bonaparte fu incoronato imperatore dei francesi?,2 dicembre 1804,3 luglio 1802,8 marzo 1803,A,True
+storia,4,Quale paese ha regalato la Statua della Libertà agli Stati Uniti d'America?,Inghilterra,Spagna,Francia,C,True
+storia,5,Quale nazione non aveva una colonia nell'America del Nord moderna?,Portogallo,Svezia,Spagna,A,True
+storia,1,Quando è stato fondato Google?,12 dicembre 1989,9 ottobre 1997,4 settembre 1998,C,True
+storia,2,"Nel 1939, la Gran Bretagna e la Francia dichiararono guerra alla Germania dopo aver invaso quale paese?",Polonia,Repubblica ceca,Austria,A,True
+storia,3,Il Canale di Panama era finito sotto l'amministrazione di quale presidente degli Stati Uniti?,Woodrow Wilson,Franklin Delano Roosevelt,Herbert Hoover,A,True
+storia,4,"Quale infame traditore europeo era conosciuto come ""l'ultima persona ad entrare in Parlamento con intenzioni oneste""?",Francesco Tresham,Guy Fawkes,Robert Catesby,B,True
+storia,5,Qual era il vero nome del leader nazionale albanese Skanderbeg?,Iskander Bejko,Gjergj Kastrioti,Ditura di Zhulati,B,True
+storia,1,In che anno è stata progettata la pistola M1911?,1899,1907,1911,C,True
+storia,2,"Quale paese ha avuto una ""rivoluzione d'accordo"" tra il 2004 e il 2005?",Ucraina,Lettonia,Bielorussia,A,True
+storia,3,"Chi ha inventato il ""Flying Shuttle"" nel 1738; uno dei principali sviluppi nell'industrializzazione della tessitura?",James Hargreaves,Richard Arkwright,John Kay,C,True
+storia,4,Quale di questi non fu uno dei dieci colpi di Joseph Stalin durante la seconda guerra mondiale?,Offensivo di Crimea,Vistula-Oder Offensive,Leningrado-Novgorod Offensive,B,True
+storia,5,Quale edificio fu costruito il 24 agosto 1812?,Parlamento europeo,Grand National Assembly Building,La Casa Bianca,C,True
+storia,1,Quando è stata conclusa la Grande Guerra Patriottica nell'URSS?,9 agosto 1945,2 settembre 1945,9 maggio 1945,C,True
+storia,2,Quale evento storico è stato l'arbitro Overture di Čajkovskij 1812?,La rivoluzione russa,La guerra americana del 1812,Le guerre napoleoniche,C,True
+storia,3,In che anno è stato l'ultimo caso naturale di vaiolo documentato?,1980,1977,1982,B,True
+storia,4,Chi è stato l'unico presidente degli Stati Uniti ad essere eletto quattro volte?,Theodore Roosevelt,George Washington,Franklin Roosevelt,C,True
+storia,5,Quanti sbarchi di luna piena ci sono stati?,3,1,6,C,True
+storia,1,Qual è il più antico stato degli Stati Uniti?,Delaware,Maine,Isola di Rhode,A,True
+storia,2,Qual è stato il primo sport ad essere stato giocato sulla luna?,Tennis,Calcio,Golf,C,True
+storia,3,Quale di questi carri armati è stato progettato e gestito dal Regno Unito?,M4 Sherman,Tog II,Tigre H1,B,True
+storia,4,Quando è crollato l'Impero bizantino?,1453,1299,1353,A,True
+storia,5,Quale di queste era la colonia del Brasile?,Portogallo,Spagna,Paesi Bassi,A,True
+storia,1,La Spitfire L.F. Mk IX aveva quale motore?,Merlino,Griffon 65,Merlino 50,A,True
+storia,2,Qual era la battaglia più sanguinosa di un giorno durante la guerra civile americana?,L'assedio di Vicksburg,La battaglia di Gettysburg,La battaglia di Antietam,C,True
+storia,3,"Oltre alla sua carriera come astrologo e ""profeta"", Nostradamus pubblicò un trattato del 1555 che includeva una sezione su cosa?",Insegnare pappagalli per parlare,Cheating ai giochi di carte,Fare marmellate e gelatine,C,True
+storia,4,Nel 1547 divenne il primo zar della Russia,Alexis di Russia,Mikhail Romanov,Ivan il Terribile,C,True
+storia,5,"Durante le invasioni mongole del Giappone, quali erano le barche mongole per lo più fermate?",Tifosi,Depressione economica,Torna a casa,A,True
+storia,1,Chi è stato il primo presidente nato negli Stati Uniti indipendenti?,Martin Van Buren,John Adams,George Washington,A,True
+storia,2,Quale nazione non aveva una colonia nell'America del Nord moderna?,Spagna,Portogallo,Svezia,B,True
+storia,3,Qual era il vero nome del leader nazionale albanese Skanderbeg?,Gjergj Kastrioti,Iskander Bejko,Ditura di Zhulati,A,True
+storia,4,Toussaint Louverture guidò una rivolta schiava di successo in quale paese?,Haiti,Cuba,Francia,A,True
+storia,5,"In che anno Skoal, una società di tabacco senza fumo, ha rilasciato la loro prima linea di Pouches, conosciuta come ""Skoal Bandits""?",1983,1984,1934,A,True
+storia,1,L'alfabeto romano originale mancava delle seguenti lettere EXCEPT:,U,X,#,B,True
+storia,2,"Dopo la sua sconfitta nella battaglia di Waterloo, Napoleone Bonaparte fu esiliato a quale isola?",Corsica,Elba,Sant'Elena,C,True
+storia,3,In quale anno è iniziata la prima guerra mondiale?,1917,1930,1914,C,True
+storia,4,In che anno il Texas secede dal Messico?,1845,1838,1836,C,True
+storia,5,"Dopo la battaglia di Marj Dabiq del 1516, l'Impero ottomano prese il controllo di Gerusalemme da quale sultanato?",Ayyubid,Mamluk,Ummayyad,B,True
+storia,1,Il pantheon a Roma era usato per adorare quale dio?,Atena,Zeus,Qualsiasi dio volessero,C,True
+storia,2,Elenca i seguenti imperi iraniani in ordine cronologico:,"Achaemenid, Median, Parthian, Sassanid","Median, Achaemenid, Parthian, Sassanid","Median, Achaemenid, Sassanid, Parthian",B,True
+storia,3,Una raccolta di inni e versi sanscriti conosciuti come Veda sono testi sacri in quale religione?,Giudaismo,Induismo,Islam,B,True
+storia,4,Quale anno l'Australia è diventata una federazione?,1910,1901,1899,B,True
+storia,5,Il sistema di difesa strategica dell'America durante la guerra fredda è stato soprannominato dopo questo famoso film.,Blade Runner,Giacche,Star Wars,C,True
+storia,1,Chi era il leader della Svezia nella Grande Guerra del Nord?,Carlo XII,Per Albin Hansson,Pietro il Grande,A,True
+storia,2,L'idea del socialismo è stata articolata e avanzata da chi?,Joseph Stalin,Karl Marx,Vladimir Lenin,B,True
+storia,3,Quale presidente degli Stati Uniti è stato famosamente 'attaccato' da un coniglio di nuoto?,Ronald Reagan,Jimmy Carter,Lydon B. Johnson,B,True
+storia,4,Chi è attribuito credito per la registrazione del poema epico The Odyssey?,Aristotele,Homer,Odisseo,B,True
+storia,5,Chi era il leader del Partito Comunista di Jugoslavia?,Milos Obilic,Josip Broz Tito,Karadjordje Petrovic,B,True
+storia,1,In quale guerra si sono verificati i bombardamenti atomici di Hiroshima e Nagasaki?,Guerra russo-giapponese,Prima guerra mondiale,Seconda guerra mondiale,C,True
+storia,2,"L'obiettivo principale dell'operazione tedesca ""Case Blue"" durante la seconda guerra mondiale era originariamente quello di catturare cosa?",Crimea,Stalingrado,Caucaso,C,True
+storia,3,"Prima che le colonie americane passassero al calendario gregoriano nel 1752, a che data iniziò il loro nuovo anno?",25 marzo,25 settembre,1° giugno,A,True
+storia,4,Joseph Stalin aveva un passato criminale a fare cosa?,Assassino per noleggio,Evasione fiscale,Robbing Treni,C,True
+storia,5,Qual e' lo scafo del cacciatorpediniere di classe Fletcher?,DD-445,DD-992,DD-444,A,True
+storia,1,Qual è il nome della nave che era a pochi chilometri di distanza dal Titanic RMS quando ha colpito un iceberg il 14 aprile 1912?,Californian,Cristo!,Carpathia,A,True
+storia,2,Quale moderno paese giorno è la regione che era conosciuta come Phrygia in tempi antichi?,Grecia,Turchia,Siria,B,True
+storia,3,Il re Enrico VIII era il secondo monarca di quale casa reale europea?,Tudor,Stuart,York,A,True
+storia,4,Quali dei seguenti fisici non hanno lavorato al progetto Manhattan?,Murray Gell-Mann,Richard Feynman,J. Robert Oppenheimer,A,True
+storia,5,Quando la Giamaica ricevette la sua indipendenza dall'Inghilterra?,1492,1963,1962,C,True
+storia,1,Quale dei cecchini seguenti ha la massima quantità di uccisioni confermate?,Chris Kyle,Simo Häyhä,Vasily Zaytsev,B,True
+storia,2,Qual è il nome del famoso leader Apache morto nel 1909 all'età di 70 anni?,Nube rosso,Geronimo,Bollo di seduta,B,True
+storia,3,In che anno Neil Armstrong e Buzz Aldrin sbarcarono sulla luna?,1966,1965,1969,C,True
+storia,4,"Chi si crede sia stato il primo europeo a ""scoprire"" la terra della Nuova Zelanda?",Cristoforo Colombo,Jeanne Baré,Abel Tasman,C,True
+storia,5,Qual è il nome dato alla serie di scontri tra il Regno Unito e l'Islanda sui diritti di pesca dell'Atlantico settentrionale?,Le guerre di Halibut,Le guerre dell'aragosta,Le guerre del fango,C,True
+storia,1,"In quale anno è finita la Grande Guerra del Nord, tra Russia e Svezia?",1726,1727,1721,C,True
+storia,2,Quale gioco è stato il gioco dell'anno nel 2018?,Redenzione Morta Rossa 2,Dio della guerra,Detroit: Diventa umano,B,True
+storia,3,Chi è stato il primo presidente degli Stati Uniti?,George Washington,James Madison,Thomas Jefferson,A,True
+storia,4,Quale asso della seconda guerra mondiale è accreditato di aver distrutto la maggior parte dei serbatoi?,Kurt Knispel,Michael Wittmann,Walter Kniep,A,True
+storia,5,Chi è andato a cavallo per avvertire i Minutemen che gli inglesi stavano arrivando durante la guerra rivoluzionaria degli Stati Uniti?,Paul Revere,Henry Longfellow,Thomas Paine,A,True
+scienza,1,Cosa rappresenta il diamante giallo sul diamante del fuoco NFPA 704?,Fiammabilità,Reattività,Salute,B,True
+scienza,2,Quanto dura un anno su Urano?,62 anni della Terra,47 anni terrestri,84 anni della Terra,C,True
+scienza,3,A quale temperatura fa bollire l'acqua?,212°F,181°C,200°C,A,True
+scienza,4,Che non è un tipo di neurone?,Neuron sensoriale,Neurone percettivo,Motor Neuron,B,True
+scienza,5,"Quale delle seguenti plastiche è comunemente usato per cornici, grondaie e tubi di scarico?",Polipropilene (PP),Cloruro di polivinile (PVC),Polietilene (PE),B,True
+scienza,1,Qual è il simbolo elementare del mercurio?,Hg,McKen.,Me,A,True
+scienza,2,Quale dei seguenti è considerato condizionamento classico?,L'esperimento del gatto di Schrödinger,Gli esperimenti di cane di Pavlov,esperimento scatola Skinner,B,True
+scienza,3,Di cosa sono fatte le unghie umane?,Bone,Keratin,Chitin,B,True
+scienza,4,"Quale colore non può essere prodotto in Roses, anche attraverso l'alterazione genetica?",Arancione,Blu,Nero,B,True
+scienza,5,"Qual è il nome comune del composto chimico ""monossido diidrogeno""?",Ammoniaca,Metano,Acqua,C,True
+scienza,1,Quanti cromosomi sono nelle cellule del corpo?,23,21,22,A,True
+scienza,2,"La ""Tibia"" si trova in quale parte del corpo?",Gamba,Mano,Braccio,A,True
+scienza,3,La fibra muscolare è costruita di fasci piccoli organelli lunghi chiamati cosa?,Idee,Epimysium,Myofibris,C,True
+scienza,4,Tutti i seguenti nomi di aplogruppi genetici umani sono condivisi tra gli aplogruppi di DNA mitocondriale e cromosoma Y EXCEPT:,Haplogroup T,Haplogroup L,Haplogroup U,C,True
+scienza,5,Qual è il nome del pregiudizio cognitivo in cui una persona con bassa capacità in una particolare abilità si sbaglia come superiore?,Effetto Dunning-Kruger,Effetto Müller-Lyer,Effetti Meyers-Briggs,A,True
+scienza,1,Quale elemento ha il simbolo chimico 'Fe'?,Oro,Argento,Ferro da stiro,C,True
+scienza,2,Quali dei seguenti liquidi sono meno viscosi? Assumere la temperatura è di 25°C.,Acetone,Acqua,Mercurio,A,True
+scienza,3,"Botanicamente parlando, quale di questi frutti non è una bacca?",Mirtillo,Fragola,Banana,B,True
+scienza,4,Down Syndrome è di solito causato da una copia extra di cui cromosoma?,21,23,15.,A,True
+scienza,5,"In Psicologia, che bisogno appare più alto nella piramide ""La gerarchia di Maslow dei bisogni""?",Sicurezza,Esteem,Amore,B,True
+scienza,1,Il polmone destro umano ha quanti lobi?,4,2,3,C,True
+scienza,2,Qual è l'emivita di Uranium-235?,4.300.400.000 anni,"703,800.000 anni",1.260.900.000 anni,B,True
+scienza,3,Quale di questi Elementi è un metalloide?,Tin,Antimonio,Bromine,B,True
+scienza,4,Quale dei seguenti uomini non ha un elemento chimico che gli prende il nome?,Albert Einstein,Sir Isaac Newton,Niels Bohr,B,True
+scienza,5,Quale di questi è un tipo di riflesso tendine stretch/deep?,Reflex Gag,Riflesso di luce pupillaria,Caviglia reflex,C,True
+scienza,1,La sindrome da ebollizione elio-oftalmica autosomica è la necessità di fare cosa quando si vede il Sole?,Yawn,Tossico,Sneeze,C,True
+scienza,2,Qual è un nome alternativo per il disturbo della personalità multipla?,Disturbo dell'identità dissociata,Crisi dell'identità,Disturbo dell'identità dell'integrità del corpo,A,True
+scienza,3,La più grande distinzione tra una cellula eucariotica e una cellula prokaryotic è:,La presenza o l'assenza di un nucleo,La dimensione complessiva,La presenza o l'assenza di alcuni organelli,A,True
+scienza,4,"Cosa significa la lettera ""S"" in 'NASA'?",Scienza,Società,Spazio,C,True
+scienza,5,"In aeronautica, le patte e le slat sono utilizzate per controllare cosa su un aereo?",Thrust,Ascensore,Dragaggio,B,True
+scienza,1,Quale di queste scelte non è una delle fasi della mitosi?,Diplofase,Anafase,Metafase,A,True
+scienza,2,Quale di questi scienziati ha condotto il Gold Foil Experiment che ha concluso che gli atomi sono principalmente fatti di spazio vuoto?,Ernest Rutherford,Archimede,Joseph John Thomson,A,True
+scienza,3,Qual è la formula chimica per l'ammoniaca?,CO2,NH3,NO,B,True
+scienza,4,Il Sole consiste per lo più di due elementi?,Idrogeno e azoto,Carbone e azoto,Idrogeno e elio,C,True
+scienza,5,Il Gorilla di Lowland occidentale è scientificamente conosciuto come?,Gorilla Gorilla Diehli,Gorilla Gorilla Gorilla,Gorilla Beringei Graueri,B,True
+scienza,1,La miopia è il termine scientifico per quale condizione?,Lungimiranza,Brevezza,Doppia visione,B,True
+scienza,2,Qual è il nome scientifico del cappuccio del ginocchio?,Femore,Patella,Foramen Magnum,B,True
+scienza,3,Quanto dura un anno luce?,1 AU,9.461 Trillion Chilometri,105.40 Anni terrestri,B,True
+scienza,4,Quale dei vasi sanguigni seguenti porta sangue deossigenato?,Arteria polmonare,Aorta,Vena polmonare,A,True
+scienza,5,Un positrone è un antiparticella di cosa?,Neutron,Proton,Elettronica,C,True
+scienza,1,L'acido folico è la forma sintetica di quale vitamina?,Vitamina A,Vitamina C,Vitamina B,C,True
+scienza,2,Qual è la velocità della luce in un vuoto?,"50,461 m/s","299,792,458 m/s","308,215,043 m/s",B,True
+scienza,3,Quanti oggetti sono equivalenti a una talpa?,6.002 x 10^22,6.022 x 10^22,6.022 x 10^23,C,True
+scienza,4,Qual è il colore del sangue unoxidized?,Rosso,Viola,Blu,A,True
+scienza,5,La condizione medica osteoporosi colpisce quale parte del corpo?,Pelle,Bones,Cervello,B,True
+scienza,1,Qual è l'unità SI standard per la massa?,Pomeriggio,Tonnellata,Chilogrammo,C,True
+scienza,2,L'acqua deionizzata è l'acqua con quale delle seguenti rimosse?,Ossigeno,Ferro da stiro,Idrogeno,B,True
+scienza,3,In cosa si misura la radiazione?,Grigio,Watt,Decibel,A,True
+scienza,4,Gli isolotti di Langerhans si trovano in quale organo umano?,Pancreas,Liver,Rene,A,True
+scienza,5,"Quale nome comune è dato alla condizione mediale, sindrome da stress tibiale (MTSS)?",Shin Splints,Tennis Elbow,Tunnel carpale,A,True
+scienza,1,Quale dei seguenti uomini non ha un elemento chimico che gli prende il nome?,Albert Einstein,Sir Isaac Newton,Niels Bohr,B,True
+scienza,2,La più grande distinzione tra una cellula eucariotica e una cellula prokaryotic è:,La presenza o l'assenza di un nucleo,La presenza o l'assenza di alcuni organelli,La dimensione complessiva,A,True
+scienza,3,In quale missione lo Space Shuttle Columbia si e' rotto per rientrare?,STS-107,STS-51-L,STS-61-C,A,True
+scienza,4,Deuterium è un isotopo di quale elemento?,Elio,Idrogeno,Azoto,B,True
+scienza,5,Quale parte del corpo produce insulina?,Liver,Rene,Pancreas,C,True
+scienza,1,Quale dei seguenti è considerato condizionamento classico?,Gli esperimenti di cane di Pavlov,L'esperimento del gatto di Schrödinger,esperimento scatola Skinner,A,True
+scienza,2,Un positrone è un antiparticella di cosa?,Proton,Neutron,Elettronica,C,True
+scienza,3,Qual è il peso atomico standard di un nucleo di Plutonio?,4.,94,244,C,True
+scienza,4,A cosa serve il DNA?,Atomi deossiribogenetici,Acido deossiribogenetico,Acido deossiribonucleo,C,True
+scienza,5,Quanti cromosomi sono nelle cellule del corpo?,22,23,21,B,True
+scienza,1,Qual è la stessa cosa in Celsius e Fahrenheit?,32,- 40,- 39,B,True
+scienza,2,Chi ha fatto la scoperta delle radiografie?,Thomas Alva Edison,Wilhelm Conrad Röntgen,James Watt,B,True
+scienza,3,Qual è la sostanza assuefante primaria trovata nel tabacco?,nicotina,Efedrina,Cathinone,A,True
+scienza,4,Quale di queste stelle è la più grande?,Betelgeuse,VY Canis Majoris,UY Scuti,C,True
+scienza,5,"La parola ""scienza"" deriva dalla parola ""scire"" che significa cosa?",Misura,Per sapere,Per vivere,B,True
+scienza,1,"In Chimica, quanti isomeri ha Butanol (C4H9OH)?",5,3,4,C,True
+scienza,2,Quanta radiazione emette una banana?,0.1 Microsievert,0.3 Microsievert,0.5 Microsievert,A,True
+scienza,3,Qual è l'osso più lungo del corpo umano?,Femore,Fibula,Scapula,A,True
+scienza,4,Quale parte del corpo influisce sul glaucoma?,Occhi,Troia,Stoccaggio,A,True
+scienza,5,Quale di questi due piatti è meglio sapere per formare terremoti e tsunami?,Boundaries piatto divergente/Cresco divergente/Oceanico,Trasformare i Boundaries del piatto / i buttafuori del piatto d'argento,Piatto di convergenza Boundaries / Crosta oceanica,C,True
+scienza,1,Down Syndrome è di solito causato da una copia extra di cui cromosoma?,15.,23,21,C,True
+scienza,2,Qual è l'unità di resistenza elettrica?,Tesla,Mho,Oh.,C,True
+scienza,3,Qual è il numero atomico di Uranium,Articolo,17,235,A,True
+scienza,4,"A cosa si riferisce il termine ""isolamento"" in microbiologia?",Il livello di azoto nel terreno,La separazione di un ceppo da una popolazione naturale e mista di microbi viventi,Una mancanza di nutrizione in microenviroments,B,True
+scienza,5,Qual è l'unità SI standard per tempo?,Minute,Secondo,Orario,B,True
+scienza,1,La malattia di Alzheimer colpisce principalmente quale parte del corpo umano?,I polmoni,Pelle,Cervello,C,True
+scienza,2,Quali delle seguenti sono le cellule del sistema immunitario adattativo?,Cellule T citototossiche,Celle dendriche,Cellule killer naturali,A,True
+scienza,3,L'Assioma della Medicina Preventiva afferma che le persone con rischio      per una malattia dovrebbero essere proiettate e dovremmo trattare      di quelle persone.,"alto, tutto","basso, tutto","basso, alcuni",B,True
+scienza,4,Qual è il nome del pregiudizio cognitivo in cui una persona con bassa capacità in una particolare abilità si sbaglia come superiore?,Effetto Müller-Lyer,Effetti Meyers-Briggs,Effetto Dunning-Kruger,C,True
+scienza,5,"Sulla scala Beaufort della forza eolica, quale nome del vento è dato al numero 8?",uragano,Gale,Tempesta,B,True
+scienza,1,Tutti i seguenti elementi metallici sono liquidi a temperatura ambiente o vicina EXCEPT:,Caesium,Gallia,Beryllium,C,True
+scienza,2,"Botanicamente parlando, quale di questi frutti non è una bacca?",Fragola,Banana,Mirtillo,A,True
+scienza,3,Quale tipo di roccia è creato da calore intenso e pressione?,Sedimentale,Metamorfismo,Igneo,B,True
+scienza,4,Dove si trova il muscolo Gluteus Maximus?,Butt,Capo,Braccio,A,True
+scienza,5,Qual è il numero atomico dell'elemento Strontium?,47,38,73,B,True
+scienza,1,Qual è la forma più rara di cecità di colore?,Verde,Rosso,Blu,C,True
+scienza,2,"La ""Tibia"" si trova in quale parte del corpo?",Mano,Gamba,Braccio,B,True
+scienza,3,Quale principio di fisica riguarda il flusso elettrico netto da una superficie chiusa alla carica racchiusa da quella superficie?,La legge di Gauss,La legge di Ampere,La legge di Faraday,A,True
+scienza,4,Quanti protoni sono in un atomo di ossigeno?,Otto.,Due,Quattro.,A,True
+scienza,5,Quale unità scientifica prende il nome da un nobile italiano?,Oh.,Pascal.,Volt,C,True
+scienza,1,A quale temperatura fa bollire l'acqua?,181°C,212°F,200°C,B,True
+scienza,2,Il 71% della superficie terrestre è costituito da,Continenti,Acqua,Deserti,B,True
+scienza,3,Quali sono i più piccoli vasi sanguigni nel corpo umano?,Arterios,Veinule,Capillari,C,True
+scienza,4,Quale missione Apollo è stata la prima a atterrare sulla Luna?,Apollo 10,Apollo 11,Apollo 9,B,True
+scienza,5,Dove nel corpo umano si trova la Pineal Gland?,Groen,Pugno,Cervello,C,True
+scienza,1,Quale di questi è un tipo di riflesso tendine stretch/deep?,Riflesso di luce pupillaria,Reflex Gag,Caviglia reflex,C,True
+scienza,2,La fibra muscolare è costruita di fasci piccoli organelli lunghi chiamati cosa?,Idee,Epimysium,Myofibris,C,True
+scienza,3,"In fisica, la conservazione dell'energia e la conservazione del moto sono entrambe le conseguenze di cui di seguito?",Teorema di Wick,Teorema di Bell,Il teorema di nessuno,C,True
+scienza,4,Qual è l'unità SI standard per intensità luminosa?,Faraday,Lumen,Candela,C,True
+scienza,5,Di quanti anni ha la Terra?,"2,5 miliardi di anni",4.5 miliardi di anni,"3,5 miliardi di anni",B,True
+cultura,1,Qual è la durata media di una formica da giardino?,1 settimana,24 ore,15 anni,C,True
+cultura,2,Quale catena alimentare veloce ha più sedi a livello globale?,McDonalds,Starbucks,Metropolitana,C,True
+cultura,3,"Qual è la parola italiana per ""pomodoro""?",Aglio,Pomodoro,Cipolla,B,True
+cultura,4,"In quale anno la Cometa di Halley, che non comparirà più fino all'anno 2061, prima si avvicinerà alla Terra?",2001,1942,1986,C,True
+cultura,5,Quale di questi non è un altro nome per le melanzane?,Potimarron,Guinea Squash,Brinjal,A,True
+cultura,1,Quale dei seguenti giochi di carte ruota intorno numeri e matematica di base?,Twister,Uno,Go Fish,B,True
+cultura,2,Come fanno i marinai a chiamare il lato destro di una barca?,Starboard,Porto,Stern,A,True
+cultura,3,"Quale slogan ha usato la compagnia fast food, McDonald's, prima del loro slogan ""I'm Lovin' It""?",Perché pagare di più?,Condividi su Google,Ci piace vederti sorridere,C,True
+cultura,4,Quale lingua è più diffusa in Svizzera?,Italiano,Germania,Francese,B,True
+cultura,5,"La parola ""abulia"" significa quale delle seguenti?",L'incapacità di concentrarsi su qualsiasi cosa,L'incapacità di prendere decisioni,L'incapacità di alzarsi,B,True
+cultura,1,"Quale prodotto è stato Nokia, la società di telecomunicazioni, originariamente vendere?",Telefoni,Computer,Carta,C,True
+cultura,2,Da che paese proviene sushi e karaoke?,Cina,Corea del Sud,Giappone,C,True
+cultura,3,"Qual è la professione della madre di Elon Musk, Maye Musk?",Biologo,Modello,Professore,B,True
+cultura,4,Qual è il più grande organo del corpo umano?,Pelle,grande intestino,Cuore,A,True
+cultura,5,Cos'è la Tasmania?,Un sapore del gelato di Ben e Jerry,Uno Stato australiano,Disturbo psicologico,B,True
+cultura,1,"La parola ""astasia"" significa quale delle seguenti?",L'incapacità di alzarsi,L'incapacità di prendere decisioni,L'incapacità di concentrarsi su qualsiasi cosa,A,True
+cultura,2,Cos'è un Burgee?,Una corda,Una bandiera,Una finestra,B,True
+cultura,3,Di che cosa si tratta?,"Vivo di pecore, reni e occhi","Cuore di pecore, reni e polmoni","Cuore di pecore, fegato e polmoni",C,True
+cultura,4,Quale presidente americano appare su un conto di un dollaro?,George Washington,Thomas Jefferson,Abraham Lincoln,A,True
+cultura,5,Qual è la più grande specie vivente di pinguino?,Imperatore,Gentoo,Re,A,True
+cultura,1,"La parte iniziale di quale decennio, la sottocultura di Goth ha cominciato?",1980,2000,1990,A,True
+cultura,2,La popolarità del produttore di musica elettronica Kygo è cresciuta dopo un certo remix. Quale canzone ha remix?,Coldplay - Midnight,Ed Sheeran - Vedo il fuoco,Marvin Gaye - Guarigione sessuale,B,True
+cultura,3,Quale stella del film ha la sua statua in Leicester Square?,Paul Newman,Rowan Atkinson,Charlie Chaplin,C,True
+cultura,4,Quale delle seguenti non è una delle favole di Aesop?,La Tortoise e la Hare,La Volpe e le Uva,La volpe e il tumulo,C,True
+cultura,5,"La frase ""incidente in attesa di accadere"" è un esempio di quale tipo di figura di discorso?",Metafora,Idiom,Simile,B,True
+cultura,1,Quale delle seguenti nazioni non era un belligerante nella prima guerra mondiale?,Portogallo,Danimarca,Grecia,B,True
+cultura,2,Cosa chiamano i marinai di una barca?,Starboard,Bow,Stern,C,True
+cultura,3,"Qual è la lingua ufficiale di Cuba, più parlata?",Portoghese,Francese,Spagnolo,C,True
+cultura,4,Qual era lo slogan originale di Mountain Dew?,Yahoo! Mountain Dew... Ti farà il solletico!,# Do the Dew #,# Dammi un centesimo #,A,True
+cultura,5,Qual è il mese di Storia Nera negli Stati Uniti?,Febbraio,Novembre,Maggio,A,True
+cultura,1,"Qual è la parola spagnola per ""asino""?",Toro,Burro,Caballo,B,True
+cultura,2,Quale dei seguenti componenti del sangue forma una spina al sito delle lesioni?,globuli bianchi,globuli rossi,Piattoli,C,True
+cultura,3,Quale delle seguenti università di Ivy League ha il suo motto ufficiale in ebraico così come in latino?,Università di Yale,Università di Princeton,Università di Harvard,A,True
+cultura,4,"Virgin Trains, Virgin Atlantic e Virgin Racing, sono tutte aziende di proprietà di cui famoso imprenditore?",Donald Trump,Alan Sugar,Richard Branson,C,True
+cultura,5,La bandiera dell'Unione europea ha quante stelle?,12,10,14,A,True
+cultura,1,Qual è il pianeta più vicino al sole del nostro sistema solare?,Giove Giove,Mercurio,Marte,B,True
+cultura,2,Quale di questi colori NON è presente nel logo per Google?,Rosa,Giallo,Blu,A,True
+cultura,3,Quando è stato fondato il sito reddit?,2004,2008,2005,C,True
+cultura,4,Quale caramella NON è fatta da Marte?,Mandorla Gioia,Twix,M&M,A,True
+cultura,5,"Originariamente un'altra parola per papavero, coquelicot è un'ombra di cosa?",Rosso,Blu,Verde,A,True
+cultura,1,In quale catena alimentare veloce si può ordinare un Jamocha Shake?,Burger King,Arby's,McDonald's,B,True
+cultura,2,"In un set standard di carte da gioco, che è l'unico re senza baffi?",Diamanti,Cuori,Spade,B,True
+cultura,3,Qual è il nome della mano di poker che contiene tre di un tipo e una coppia?,Flusso,dritto,Casa piena,C,True
+cultura,4,Qual è il nome della società in Lethal Company?,Robotica letale,Planet Scrap Co.,La Società,C,True
+cultura,5,Qual è il titolo completo del Primo Ministro del Regno Unito?,Opposizione Loyal di Sua Maestà,Duca di Cambridge,Primo Lord del Tesoro,C,True
+cultura,1,Quale di questi non è l'ospite di un programma sulla NPR?,Ben Shapiro,Vetro di Ira,Terry Grosso,A,True
+cultura,2,"Il termine ""scienziato"" è stato coniato in quale anno?",1933,1833,1942,B,True
+cultura,3,"La parola ""aprosexia"" significa quale delle seguenti?",L'incapacità di concentrarsi su qualsiasi cosa,Un desiderio febbrile di strappare i vestiti,L'incapacità di prendere decisioni,A,True
+cultura,4,Quale tipo di posate è più adatto per mangiare minestra?,Spoon,Forcella,Coltello,A,True
+cultura,5,Qual è il nome del più famoso telescopio spaziale della NASA?,Telescopio spaziale Hubble,Grande occhio,Morte di morte,A,True
+cultura,1,Qual è il pianeta più vicino al sole del nostro sistema solare?,Giove Giove,Marte,Mercurio,C,True
+cultura,2,Quale di questi cantanti e cantautore americani ha vinto un premio Nobel per la letteratura?,Johnny Cash,Bob Dylan,Buddy Holly,B,True
+cultura,3,"Qual è la parola russa romanizzata per ""inverno""?",Zima.,Leto,Vesna,A,True
+cultura,4,Quale bevanda alcolica è fatta principalmente da bacche di ginepro?,Vodka,Gin,Rum,B,True
+cultura,5,Nei fumetti di Washington dove vive la Freccia Verde (Oliver Queen)?,Star City,Città centrale,Città di Gotham,A,True
+cultura,1,Quale di questi non è una Ivy League University?,Università di Pennsylvania,Stanford,Harvard,B,True
+cultura,2,"Qual è la lingua ufficiale di Cuba, più parlata?",Francese,Portoghese,Spagnolo,C,True
+cultura,3,Quante lettere sono nell'alfabeto inglese?,17,26.,30,B,True
+cultura,4,"Qual è la parola francese per ""pesce""?",Poisson,escargot,fiche,A,True
+cultura,5,Quale paese ha le birrerie più Trappiste?,Paesi Bassi,Belgio,Francia,B,True
+cultura,1,Qual è l'ultima lettera dell'alfabeto greco?,Epsilon,Mu,Omega Omega Omega Omega,C,True
+cultura,2,Quale fiume scorre attraverso la città scozzese di Glasgow?,Tay.,Dee,Clyde.,C,True
+cultura,3,La prima apparizione di Waluigi era in che gioco?,Wario Land: Super Mario Land 3,Mario Tennis 64 (N64),Mario Party (N64),B,True
+cultura,4,Quali delle seguenti bevande analcoliche gassate sono state introdotte prima?,Dr. Pepper,Coca-Cola,Sprite,A,True
+cultura,5,Nel 2013 quanti soldi sono stati persi dalle truffe nigeriane?,$95 milioni,$956 milioni,"14,7 miliardi di dollari",C,True
+cultura,1,Quando è stato fondato il sito reddit?,2008,2004,2005,C,True
+cultura,2,Quale di questi non è un altro nome per le melanzane?,Potimarron,Brinjal,Guinea Squash,A,True
+cultura,3,"In ""Resident Evil 3"", quante slot di inventario ha Jill all'inizio del gioco?",10,8,6,B,True
+cultura,4,"La parola ""aprosexia"" significa quale delle seguenti?",Un desiderio febbrile di strappare i vestiti,L'incapacità di prendere decisioni,L'incapacità di concentrarsi su qualsiasi cosa,C,True
+cultura,5,Chartreuse è un colore tra giallo e cosa?,Rosso,Verde,Nero,B,True
+cultura,1,Quali dei seguenti Monarchi britannici non sono mai apparsi su una moneta sterlina circolata?,Victoria,Giorgio VI,Edoardo VIII,C,True
+cultura,2,"Cosa significa ""S"" nell'abbreviazione SIM, come nella scheda SIM?",Iscriviti,Singola,Sicuro,A,True
+cultura,3,Produttore di computer Compaq è stato acquistato per $25 miliardi di dollari nel 2002 da quale azienda?,Hewlett-Packard,Asino,Toshiba,A,True
+cultura,4,Quale stella del film ha la sua statua in Leicester Square?,Paul Newman,Rowan Atkinson,Charlie Chaplin,C,True
+cultura,5,Quale di questi non è considerato un colore che compone l'arcobaleno?,Rosa,Viola,Blu,A,True
+cultura,1,Qual era la bevanda morbida Pepsi originariamente introdotta come?,Carolina Cola,Brad's Drink,Pepsin Pop,B,True
+cultura,2,Lo slogan del New York Times è: “Tutte le notizie che si adattano a...”,Stampa,Guarda.,Digerisci,A,True
+cultura,3,Qual è la moneta dell'India e del Pakistan così come alcuni altri paesi asiatici?,Rupe,Peso,Riyal,A,True
+cultura,4,Chi inventò il primo bar di cioccolato del 1847?,John Cadbury,Joseph Fry,Andrew Johnson,B,True
+cultura,5,Chi è raffigurato sulla bolletta da cento dollari?,Abraham Lincoln,Benjamin Franklin,George Washington,B,True
+cultura,1,Qual è l'ultimo nome del famoso Papa John?,Chowder,Schnatter,Williams,B,True
+cultura,2,"Quale paese ha avuto i primi ministri di nome Eden, Maggiore, Peel, Law, Brown e Heath?",Regno Unito,Nuova Zelanda,Australia,A,True
+cultura,3,Qual è stata la prima linea metropolitana di Londra ad essere costruita?,Linea Bakerloo,Linea del cerchio,Metropolitan Line,C,True
+cultura,4,Quante note ci sono su un pianoforte standard?,98,108,88,C,True
+cultura,5,Qual è il nome dato al cibo indiano cotto sopra carbone in un forno argilloso?,Tandori,Pani puri,Biryani,A,True
+cultura,1,"Se siete catturati ""Goldbricking"", che cosa state facendo male?",Rubare,Fumare,Slacking,C,True
+cultura,2,"Nel RPG MMO ""Realm of the Mad God"", quale dungeon è ampiamente considerato il più difficile?",Snake Pit,Lo Shatter,La tomba dell'Aciente,B,True
+cultura,3,"Cos'e' ""dabbing""?",Uno sport,Un ballo,Una procedura medica,B,True
+cultura,4,"La parola ""abulia"" significa quale delle seguenti?",L'incapacità di prendere decisioni,L'incapacità di concentrarsi su qualsiasi cosa,L'incapacità di alzarsi,A,True
+cultura,5,Quale produttore automobilistico italiano ha ottenuto il controllo di maggioranza del produttore automobilistico statunitense Chrysler nel 2011?,Maserati,Alfa Romeo,Fiat,C,True
+cultura,1,A cosa servono le lettere nel fuso orario GMT?,Tempo medio di Greenwich,Meridian globale Tempo,Generale Median Tempo,A,True
+cultura,2,Come è stato originariamente stabilito Bank of America?,Banca di Long Island,Banca di Pennsylvania,Banca d'Italia,C,True
+cultura,3,"La meno nota continuazione del detto ""Curiosity ha ucciso il gatto..."" è:","""...che l'ha insegnato a non farlo.""","""...e il topo silenzioso è rimasto lì"".","""...ma la soddisfazione l'ha riportata indietro.""",C,True
+cultura,4,Quando è stato rilasciato il Playstation 3?,11 novembre 2006,8 gennaio 2007,25 dicembre 2007,A,True
+cultura,5,La somiglianza di quale presidente è presente sulla rara fattura di dollari di valuta USA?,Ulysses Grant,Thomas Jefferson,Martin Van Buren,B,True
+cultura,1,"Nel videogioco franchise Kingdom Hearts, il protagonista principale, porta un'arma con quale forma?",Chiave,Penna,Spada,A,True
+cultura,2,Quale dei tre astronauti del volo spaziale Apollo 11 non ha camminato sulla luna?,Neil Armstrong,Michael Collins,Buzz Aldrin,B,True
+cultura,3,Quale tecnologia prende il nome da un righello del decimo secolo di Danimarca e Norvegia?,Bluetooth,Wi-Fi,GPS,A,True
+cultura,4,Quale anno è stato introdotto il primo iPod Apple?,2000,1999,2001,C,True
+cultura,5,Quale paese ha sviluppato il fucile d'assalto AK-47?,Israele,Unione Sovietica,Iran,B,True
+sport,1,La squadra di affiliazione AHL dei Boston Bruins si chiama cosa?,Cambridge Bruins,Bruins di fornitura,Nuovi Bruins Haven,B,True
+sport,2,Come si chiama lo stadio di casa del Manchester United?,City of Manchester Stadium,Anfield,Old Trafford,C,True
+sport,3,"Da quale città nacque l'ex team NHL ""The Nordiques""?",Houston,Città del Quebec,Montreal Montreal,B,True
+sport,4,I Los Angeles Dodgers erano originari della città degli Stati Uniti?,Las Vegas,Boston,Brooklyn,C,True
+sport,5,Chi ha vinto il Campionato Mondiale di Formula Uno 2017?,Sebastian Vettel,Nico Rosberg,Lewis Hamilton,C,True
+sport,1,"Nel calcio canadese, segnare un rouge vale quanti punti?",2,3,1,C,True
+sport,2,La Mazda 787B ha vinto la 24 Ore di Le Mans in che anno?,1991,1990,2000,A,True
+sport,3,Quale lottatore professionista è caduto dalle travi alla sua morte durante un evento Pay-Per-View dal vivo nel 1999?,Chris Benoit,Owen Hart,Lex Luger,B,True
+sport,4,Chi ha vinto la Stanley Cup del 2011?,Montreal Canadiens,Boston Bruins,New York Rangers,B,True
+sport,5,Quale paese ha vinto la Coppa del Mondo FIFA 2018 ospitato in Russia?,Belgio,Croazia,Francia,C,True
+sport,1,Quale strumento dà il nome a un vantaggio last-stone in una fine a Curling?,Martello,Wrench,Trapano,A,True
+sport,2,Quale squadra della NFL gioca per il New England?,Patriots,Capo,Dolphins,A,True
+sport,3,Quale paese ha ospitato la Coppa del Mondo FIFA 2022?,Giappone,USA,Qatar,C,True
+sport,4,"Che Formula Un autista è stato soprannominato ""Il Professore""?",Niki Lauda,Ayrton Senna,Alain Prost,C,True
+sport,5,Quale squadra di calcio ha vinto il Campionato Copa América 2015?,Argentina,Cile,Brasile,B,True
+sport,1,Quando è stato il primo gioco internazionale ufficiale giocato?,1880,1863,1872,C,True
+sport,2,"La canzone ""Three Lions"" della Lightning Seeds è stata realizzata per quale grande evento di calcio nel 1996?",Campionati europei,Coppa del Mondo,Champions League,A,True
+sport,3,Chi è il miglior giocatore del Manchester United?,Ryan Giggs,Sir Bobby Charlton,Wayne Rooney,C,True
+sport,4,Quale club di calcio inglese ha il soprannome 'The Foxes'?,Città di Leicester,Bradford City,Città di Northampton,A,True
+sport,5,Quale squadra nazionale ha vinto l'edizione 2016 del Campionato Europeo UEFA?,Germania,Portogallo,Francia,B,True
+sport,1,Quale pugile è stato bandito per aver preso un morso dall'orecchio di Evander Holyfield nel 1997?,Evander Holyfield,Mike Tyson,Roy Jones Jr.,B,True
+sport,2,Chi ha vinto il titolo di premier league nella stagione 2015-2016 dopo una corsa di fiabe?,Watford,Città di Leicester,Tottenham Hotspur,B,True
+sport,3,Chi ha segnato il gol vincente nel 1999 in UEFA Champions League tra Manchester United e Bayern Monaco?,Ole Gunnar Solskjær,Andy Cole,Dwight Yorke,A,True
+sport,4,Quale giocatore NBA ha più partite giocate nel corso della loro carriera?,Robert Parish,Kevin Garnet,Kareem Abdul-Jabbar,A,True
+sport,5,Quale squadra è stata la NBA Champions 2015-2016?,Cleveland Cavaliers,Toronto Raptors,Guerrieri di Stato d'oro,A,True
+sport,1,Qual è il nome della filiale AHL dei Toronto Maple Leafs?,Toronto Rock,Toronto Argonauts,Toronto Marlies,C,True
+sport,2,Che anno è nata la leggenda dell'hockey Wayne Gretzky?,1965,1961,1959,B,True
+sport,3,Quale giocatore maschio ha vinto la medaglia d'oro dei singoli da ping pong nel 2016 Olimpiadi?,Zhang Jike (Cina),Ma Long (Cina),Jun Mizutani (Giappone),B,True
+sport,4,Qual è stato l'anno di estabilizzazione del Bari Italian Football Club?,1945,2014,1908,C,True
+sport,5,Quante zone di punteggio ci sono su un bordo di freccette convenzionale?,"42, 42, 42",82,62,B,True
+sport,1,Quale di queste città europee è stata la prima a ospitare i moderni Giochi olimpici estivi tre volte?,Atene,Parigi,Londra,C,True
+sport,2,Da quale isola portoghese è il calciatore Cristiano Ronaldo?,Terceira,Madeira,Santa Maria,B,True
+sport,3,A quale ponte inizia la gara annuale della barca di Oxford e Cambridge?,Hammersmith,Putney,Vauxhall,B,True
+sport,4,Qual è il tipo più comune di pitcher lanciati nel baseball?,Fanculo!,Veloce,Slowball,B,True
+sport,5,"Nel 2014 FIFA World Cup, qual è stato il punteggio finale nella partita Brasile - Germania?",1-5,1-7,1-6,B,True
+sport,1,Quando è stato fondato il FC Schalke 04?,1904,2008,1909,A,True
+sport,2,Quali dei seguenti tornei di tennis Grand Slam si verificano LAST?,Wimbledon,Francese Aperto,US Open,C,True
+sport,3,"Quale di queste squadre non è membro dell'era ""Original Six"" della NHL?",Toronto Maple Leafs,Philadelphia Flyers,New York Rangers,B,True
+sport,4,Chi ha vinto la UEFA Champions League nel 2017?,Real Madrid C.F.,Atletico Madrid,AS Monaco FC,A,True
+sport,5,Quale giocatore NBA ha vinto Most Valuable Player per la stagione 1999-2000?,Shaquille O'Neal,Allen Iverson,Kobe Bryant,A,True
+sport,1,Etihad Stadium è lo stadio di casa per quale squadra?,Manchester United,Manchester City,Arsenal,B,True
+sport,2,Quanti giocatori ci sono in una squadra di calcio/soccer di associazione?,11,10,9,A,True
+sport,3,Qual era la media di battuta di Sir Donald Bradman nelle partite di test?,100,69.51,99.94,C,True
+sport,4,La UEFA Champions League è una competizione calcistica annuale con club da quale continente?,Europa,Africa,Sud America,A,True
+sport,5,"""Stadium of Light"" è lo stadio di casa per quale squadra di calcio?",Paris Saints-Germain,Sunderland FC,Barcelona FC,B,True
+sport,1,Quanti punti ha segnato LeBron James nel suo primo gioco NBA?,25,19,69,A,True
+sport,2,Quale dei giocatori seguenti ha segnato una tripletta durante il loro debutto nel Manchester United?,Cristiano Ronaldo,Wayne Rooney,Robin Van Persie,B,True
+sport,3,Chi ha vinto il Daytona 500 del 1998?,Jeff Gordon,Dale Earnhardt,John Anderson,B,True
+sport,4,Chi ha vinto il Gran Premio di Monaco 2018?,Daniel Ricciardo,Sebastian Vettel,Kimi Raikkonen,A,True
+sport,5,Con chi ha vinto la Champions League Steven Gerrard?,Chelsea,Liverpool,Real Madrid,B,True
+sport,1,Quale dei seguenti sport non fa parte del triathlon?,Equitazione,Ciclismo,Nuoto,A,True
+sport,2,Quale strumento dà il nome a un vantaggio last-stone in una fine a Curling?,Wrench,Martello,Trapano,B,True
+sport,3,Perché The Green Monster al Fenway Park è stato originariamente costruito?,Per evitare la visualizzazione di giochi da fuori del parco.,Per visualizzare pubblicità.,Fare tornare a casa dura.,A,True
+sport,4,La squadra di affiliazione AHL dei Boston Bruins si chiama cosa?,Bruins di fornitura,Nuovi Bruins Haven,Cambridge Bruins,A,True
+sport,5,Quale città ha tutte le maglie sportive professionali delle loro squadre con lo stesso schema di colori?,New York,Pittsburgh,Seattle,B,True
+sport,1,Quanti trofei della prima lega hanno vinto Sir Alex Ferguson durante il suo tempo al Manchester United?,13,20,11,A,True
+sport,2,Quale giocatore ha il record NHL di 2.857 punti?,Mario Lemieux,Sidney Crosby,Wayne Gretzky,C,True
+sport,3,Qual è la squadra più antica della Major League Baseball?,Atlanta Braves,Cincinnati Reds,Chicago Cubs,A,True
+sport,4,"In bowling, qual è il termine usato per ottenere tre colpi consecutivi?",Turchia,Birdie,Flamingo,A,True
+sport,5,Come si chiama lo stadio di casa del Manchester United?,Old Trafford,Anfield,City of Manchester Stadium,A,True
+sport,1,La Mazda 787B ha vinto la 24 Ore di Le Mans in che anno?,2000,1990,1991,C,True
+sport,2,Quale squadra ha vinto la Premier League 2015-16?,Cheslea,Città di Leicester,Liverpool,B,True
+sport,3,Quale pilota della Formula 1 ha scambiato le squadre in piena stagione 2017?,Daniil Kvyat,Carlos Sainz Jr.,Jolyon Palmer,B,True
+sport,4,Quanti giocatori di calcio dovrebbero essere sul campo allo stesso tempo?,24,20,22,C,True
+sport,5,Quale squadra è stata la NBA Champions 2014-2015?,Cleveland Cavaliers,Houston Rockets,Guerrieri di Stato d'oro,C,True
+sport,1,Chi era il topscorer della nazionale inglese?,Wayne Rooney,Steven Gerrard,David Beckham,A,True
+sport,2,Quante partite l'Arsenal FC è rimasto imbattuto durante la stagione 2003-2004 della Premier League inglese,49,51,38,C,True
+sport,3,Qual è la squadra più antica della NFL?,Imballaggi della baia verde,Arizona Cardinals,Chicago Bears,B,True
+sport,4,Quale lottatore ha vinto il Royal Rumble maschile 2019?,Seth Rollins,Braun Strowman,AJ Styles,A,True
+sport,5,"Da quale paese è nato Kabaddi, uno sport di contatto che coinvolge l'affrontare?",Turchia,Australia,India,C,True
+sport,1,Quale lottatore professionista è caduto dalle travi alla sua morte durante un evento Pay-Per-View dal vivo nel 1999?,Chris Benoit,Owen Hart,Lex Luger,B,True
+sport,2,"Prima del 2018, quale compagnia automobilistica è l'unica azienda giapponese che ha vinto la 24 Ore di Le Mans?",Toyota,Mazda,Subaru,B,True
+sport,3,Chi è il miglior giocatore del Manchester United?,Sir Bobby Charlton,Wayne Rooney,Ryan Giggs,B,True
+sport,4,A quale ponte inizia la gara annuale della barca di Oxford e Cambridge?,Hammersmith,Putney,Vauxhall,B,True
+sport,5,Chi ha vinto il Campionato Mondiale di Formula 1 2016?,Lewis Hamilton,Max Verstappen,Nico Rosberg,C,True
+sport,1,La stagione F1 del 1994 è ricordata per quale tragico evento?,Verstappen on Fire (Germania),Morte di Ayrton Senna (San Marino),Lo spettacolo (Australia),B,True
+sport,2,Quanti giocatori ci sono in una squadra di calcio/soccer di associazione?,11,9,10,A,True
+sport,3,In quale anno Jenson Button ha vinto il suo primo campionato mondiale di Formula 1?,2009,2007,2010,A,True
+sport,4,Quale squadra ha vinto la Coppa del Mondo FIFA 2014 in Brasile?,Argentina,Brasile,Germania,C,True
+sport,5,Qual è il soprannome del rugby club di Northampton?,Santi,Manichini,Saracens,A,True
+sport,1,"Qual è il nome del ""tool"" usato per colpire la palla bianca in snooker o biliardo?",Bat,Racchetta,Cue,C,True
+sport,2,"La canzone ""Three Lions"" della Lightning Seeds è stata realizzata per quale grande evento di calcio nel 1996?",Champions League,Coppa del Mondo,Campionati europei,C,True
+sport,3,Che anno è nata la leggenda dell'hockey Wayne Gretzky?,1965,1959,1961,C,True
+sport,4,Quando è stato il primo gioco internazionale ufficiale giocato?,1863,1880,1872,C,True
+sport,5,Da quale isola portoghese è il calciatore Cristiano Ronaldo?,Santa Maria,Terceira,Madeira,C,True
+sport,1,"Nel golf, che nome è dato a un punteggio di due sotto la par?",Bogey,Aquila,Birdie,B,True
+sport,2,"Quale calciatore italiano ha detto a Neuer dove sta mettendo il suo tiro e trascinandolo largo, durante la partita Italia-Germania, UEFA EURO 2016?",Indirizzo,Pelletteria,Barzagli,B,True
+sport,3,Qual è stato il punteggio finale della Germania contro il Brasile 2014 FIFA World Cup match?,3 - 4,7 - 1,0 - 1,B,True
+sport,4,I Los Angeles Dodgers erano originari della città degli Stati Uniti?,Boston,Brooklyn,Las Vegas,B,True
+sport,5,Quale pilota è stato il campione del mondo della Formula 1 per un record di 7 volte?,Ayrton Senna,Fernando Alonso,Michael Schumacher,C,True
+sport,1,Quale paese ha vinto la Coppa del Mondo FIFA 2018 ospitato in Russia?,Francia,Belgio,Croazia,A,True
+sport,2,Chi è stato il miglior punteggio della Coppa del Mondo FIFA 2014?,Thomas Müller,Lionel Messi,James Rodríguez,C,True
+sport,3,"Quale giocatore ha ""kung-fu"" un fan di Crystal Palace nel gennaio 1995?",Ashley Cole,Eric Cantona,David Seamen,B,True
+sport,4,"Chi ha vinto la ""Champions League"" nel 1999?",Barcellona,Manchester United,Bayern Monaco di Baviera,B,True
+sport,5,Le Olimpiadi di Rio 2016 hanno tenuto la cerimonia di chiusura a che data?,19 agosto,23 agosto,21 agosto,C,True
+sport,1,Quali dei seguenti tornei di tennis Grand Slam si verificano LAST?,US Open,Wimbledon,Francese Aperto,A,True
+sport,2,"Quale sport presenta i termini amore, deuce, match e volley?",Tennis,Basket,Cricket,A,True
+sport,3,Chi ha vinto la Stanley Cup del 2011?,Boston Bruins,Montreal Canadiens,New York Rangers,A,True
+sport,4,Quale squadra è stata la NBA Champions 2015-2016?,Toronto Raptors,Cleveland Cavaliers,Guerrieri di Stato d'oro,B,True
+sport,5,"In Baseball, quante volte la palla deve essere lanciata al di fuori della zona di sciopero prima che la pastella sia camminata?",2,4,1,B,True
+geografia,1,"Quale museo nazionale troverai a Cooperstown, New York?",National Toy Hall of Fame,Metropolitan Museum of Art,National Baseball Hall of Fame,C,True
+geografia,2,Quale di queste isole Mediterranee è sotto il dominio sovrano della Francia?,Maiorca,Corsica,Sardegna,B,True
+geografia,3,Quanti paesi sono più grandi dell'Australia?,3,4,5,C,True
+geografia,4,Quale paese europeo non fa parte dell'UE?,Norvegia,Lituania,Irlanda,A,True
+geografia,5,Qual è il lago più grande del continente africano?,Lago Malawi,Lago di Tanganyika,Lago di Victoria,C,True
+geografia,1,Quale città europea ha il più alto chilometraggio di canali nel mondo?,Amsterdam,Venezia,Birmingham,C,True
+geografia,2,Quale isola delle Isole Canarie era la scena di uno dei peggiori disastri aerei della storia con la collisione di due jet jumbo?,Fuerteventura,Gran Canaria,Tenerife,C,True
+geografia,3,Qual è il quinto paese più grande per area?,Stati Uniti,Australia,Brasile,C,True
+geografia,4,Qual è la capitale della Groenlandia?,Nuuk,Narsaq.,Sisimiut,A,True
+geografia,5,Qual è la capitale delle Bermuda?,San Juan,Hamilton,Santo Domingo,B,True
+geografia,1,"Dove troverai i ""Spagnoli passi""?","Berlino, Germania","Barcellona, Spagna","Roma, Italia",C,True
+geografia,2,"Nel sondaggio Global Peace Index del 2016, su 163 paesi, qual è stato il classificato degli Stati Uniti d'America?",103,10,59,A,True
+geografia,3,Quali dei seguenti stati ex-Jugoslavia sono bloccati?,Bosnia-Erzegovina,Montenegro,Serbia,C,True
+geografia,4,Quale città tedesca si trova sul fiume Isar?,Monaco di Baviera,Amburgo,Berlino,A,True
+geografia,5,"Eritrea, che è diventato il 182 ° membro dell'ONU nel 1993, è nel continente di?",Europa,Africa,Asia,B,True
+geografia,1,Qual è la capitale della Spagna?,Siviglia,Madrid,Barcellona,B,True
+geografia,2,Dov'è la zona comunemente conosciuta come il Triangolo delle Bermuda?,Nel Mar dei Caraibi,"Oceano Atlantico Nord, tra Florida e Porto Rico","Oceano Pacifico settentrionale, tra il Giappone e gli Stati Uniti",B,True
+geografia,3,Quanti paesi confinano con il Messico?,3,2,4,A,True
+geografia,4,Quanti fusi orari ha la Cina?,3,4,1,C,True
+geografia,5,"Nel 2012 il microstato di lingua tedesca ""Liechtenstein"" in Europa centrale aveva una popolazione di quanti abitanti?",36.600,90.000,2.400,A,True
+geografia,1,Lago Titicaca si trova tra cui due nazioni?,Kenya e Uganda,Messico e Stati Uniti,Perù e Bolivia,C,True
+geografia,2,In quale paese è la città di Rio de Janeiro?,Cile,Brasile,Perù,B,True
+geografia,3,Quale di questi non è una provincia in Cina?,Fujian,Sichuan,Yangtze,C,True
+geografia,4,Quale nazione rivendica la proprietà dell'Antartide?,Nazioni Unite,"Nessuno, ma ci sono affermazioni.",Stati Uniti d'America,B,True
+geografia,5,Qual è la lingua ufficiale della Costa Rica?,Portoghese,Inglese,Spagnolo,C,True
+geografia,1,Il corpo della Sfinge egiziana era basato su quale animale?,Boll.,Cavallo,Leone,C,True
+geografia,2,Che colore è il cerchio sulla bandiera giapponese?,Bianco,Giallo,Rosso,C,True
+geografia,3,Quale di questi non è uno stato o un territorio australiano?,Victoria,Alberta,Nuovo Galles del Sud,B,True
+geografia,4,Qual è il più grande paese musulmano del mondo?,Pakistan,Arabia Saudita,Indonesia,C,True
+geografia,5,"Dove si trova il "" Deserto Sonoran""?",Nord America,Sud America,Asia,A,True
+geografia,1,Quanti paesi condividono un confine con il Lussemburgo?,4,3,2,B,True
+geografia,2,Qual è la capitale dell'Estonia?,Helsinki,Tartufi,Tallinn,C,True
+geografia,3,Quale dei paesi seguenti NON riconosce l'Armenia come paese indipendente?,Turchia,Pakistan,Iran,B,True
+geografia,4,"Qual è la capitale dello Stato di Washington, Stati Uniti?",Washington D.C.,Seattle,Olympia,C,True
+geografia,5,Quale di questi paesi non è uno stato membro delle Nazioni Unite?,Tuvalu,Niue,Sudan del Sud,B,True
+geografia,1,Dove si trova il Muro di Adriano?,"Carlisle, Inghilterra","Alessandria, Egitto","Roma, Italia",A,True
+geografia,2,Quale paese non faceva parte della Jugoslavia?,Croazia,Serbia,Albania,C,True
+geografia,3,Le isole Maluku (isole Spice) appartengono a quale paese?,Nuova Zelanda,Cile,Indonesia,C,True
+geografia,4,Qual è la nazione più popolosa di maggioranza musulmana nel 2010?,Iran,Indonesia,Arabia Saudita,B,True
+geografia,5,Qual è la capitale della Giamaica?,San Juan,Port-au-Prince,Kingston,C,True
+geografia,1,Qual è la città polacca conosciuta ai tedeschi come Danzig?,Danzica,Varsavia,Zakopane,A,True
+geografia,2,Qual era la nazione africana di Zimbabwe precedentemente conosciuta come?,Mozambico,Zambia,Rodi,C,True
+geografia,3,Quale provincia canadese ha Charlottetown come capitale?,Prince Edward Island,Saskachewan,Territori del Nord-Ovest,A,True
+geografia,4,Quale di questi non è una capitale?,Sydney,Mosca,Il Cairo,A,True
+geografia,5,Quale paese ha una foglia d'acero sulla sua bandiera?,Canada,Messico,Brasile,A,True
+geografia,1,"Quale attrazione turistica nordamericana è servita dalla ""Maid of the Mist"" tour company?","Whistler, British Columbia",Cascate del Niagara,Mondo Disney,B,True
+geografia,2,Qual è il nome della capitale della Turchia?,Ankara,Izmir,Istanbul,A,True
+geografia,3,"Qual è la regione che congiunge Pakistan, India e Cina con la leadership sconosciuta chiamata?",Kashmir,Andorra,Gibilterra,A,True
+geografia,4,La Gambia è una nazione trovata in quale continente?,Africa,Asia,Sud America,A,True
+geografia,5,Qual è la capitale dell'Indonesia?,Giacarta,Bandung,Medan,A,True
+geografia,1,Dove si trovano le Linee Nazca?,Brasile,Perù,Colombia,B,True
+geografia,2,"Frankenmuth, una città degli Stati Uniti soprannominata ""Piccola Baviera"", si trova in che stato?",Kentucky,Michigan,Pennsylvania,B,True
+geografia,3,In quale bacino fluisce il fiume Giordano?,Mare di Aral,Mar Morto,Mar Caspio,B,True
+geografia,4,Quanti stati federali ha la Germania?,32,13,16,C,True
+geografia,5,Qual è il modo giusto per scrivere la capitale ungherese?,Bhudapest,Budapest,Traduzione:,B,True
+geografia,1,Quale città ha l'aeroporto più trafficato del mondo?,Stati Uniti d'America,"Londra, Inghilterra","Chicago, Illinois ISA",A,True
+geografia,2,Quale stato degli Stati Uniti ha la popolazione più alta?,New York,California,Texas,B,True
+geografia,3,Qual è il nome degli indigeni della Nuova Zelanda?,Polinesiani,Vichinghi,Maori,C,True
+geografia,4,Qual è la terra che collega Nord America e Sud America?,Urali,Isthmus of Suez,Isthmus di Panama,C,True
+geografia,5,"Qual è il percorso di arrampicata più comune per la seconda montagna più alta del mondo, K2?",Itinerario di Cesen,Linea magica,Abruzzi Spur,C,True
+geografia,1,Quale catena montuosa delimita il confine tra Spagna e Francia?,Pirenei,Alpi,Carpazi,A,True
+geografia,2,Qual è il paese più grande del mondo?,Canada,Russia,Cina,B,True
+geografia,3,Quale città europea ha il più alto chilometraggio di canali nel mondo?,Birmingham,Amsterdam,Venezia,A,True
+geografia,4,"Qual è il paese più grande, per zona, che ha un solo fuso orario?",India,Canada,Cina,C,True
+geografia,5,Quante province sono nei Paesi Bassi?,10,14,12,C,True
+geografia,1,"Dov'è la catena fast food ""Panda Express"" con sede?","Sacramento, California","Rosemead, California","Fresno, California",B,True
+geografia,2,Quanti paesi indipendenti ci sono nel continente del Sud America?,9,8,12,C,True
+geografia,3,"Qual è la regione che congiunge Pakistan, India e Cina con la leadership sconosciuta chiamata?",Kashmir,Gibilterra,Andorra,A,True
+geografia,4,Qual è il più grande lago d'acqua dolce del mondo?,Lago Michigan,Lago Superiore,Mar Caspio,B,True
+geografia,5,In che città si trova l'Esercito di Terracotta?,Shanghai,Pechino,Xi'an,C,True
+geografia,1,Quali due paesi della giornata moderna erano conosciuti come la regione della Rhodesia tra il 1890 e il 1980?,Zambia & Zimbabwe,Togo & Benin,Lesotho & Swaziland,A,True
+geografia,2,Quale delle seguenti lingue inuit era il PRIMO usare un sistema di scrittura unico non basato sull'alfabeto latino?,Groenlandia,Inuktitut,Inuinnaqt,B,True
+geografia,3,Qual è la capitale del Cile?,Valparaí,Copia,Santiago,C,True
+geografia,4,Qual è la capitale della Corea del Sud?,Seoul,Pyongyang,Taegu,A,True
+geografia,5,Quale di queste città americane ha meno di un milione di persone?,"Phoenix, Arizona","San Antonio, Texas","San Francisco, California",C,True
+geografia,1,Qual è la lingua ufficiale del Bhutan?,Dzongkha,Karen.,Ladakhi,A,True
+geografia,2,La Groenlandia fa parte del regno?,Danimarca,Svezia,Norvegia,A,True
+geografia,3,Cos'è Laos?,Paese,Fiume,Regione,A,True
+geografia,4,Qual è l'unico paese al mondo con una bandiera che non ha quattro angoli giusti?,Angola,Panama,Nepal,C,True
+geografia,5,Quale dei seguenti non è un paese megadiverso - quello che ospita un alto numero di specie endemiche della terra?,Perù,Thailandia,Messico,B,True
+geografia,1,Quale di questi non è uno stato o un territorio australiano?,Nuovo Galles del Sud,Victoria,Alberta,C,True
+geografia,2,Qual è la seconda città più grande in Lituania?,Vilnius,Kaunas,Panevėžys,B,True
+geografia,3,Qual è la città polacca conosciuta ai tedeschi come Danzig?,Varsavia,Danzica,Zakopane,B,True
+geografia,4,Quale di questi paesi non è uno stato membro delle Nazioni Unite?,Sudan del Sud,Niue,Tuvalu,B,True
+geografia,5,Qual è il più grande paese musulmano del mondo?,Indonesia,Arabia Saudita,Pakistan,A,True
+geografia,1,Quale paese è il secondo più grande del mondo per area?,Russia,Cina,Canada,C,True
+geografia,2,Qual è la capitale della Bielorussia?,Minsk,Kiev,Varsavia,A,True
+geografia,3,Qual è la capitale dello stato degli Stati Uniti Nevada?,Carson City,Henderson,Las Vegas,A,True
+geografia,4,Qual è il quinto paese più grande per area?,Stati Uniti,Brasile,Australia,B,True
+geografia,5,Broome è una città in cui lo stato dell'Australia?,Australia meridionale,Australia occidentale,Territorio del Nord,B,True
+geografia,1,Quale paese africano ha il portoghese come lingua ufficiale?,Mozambico,Gabon,Botswana,A,True
+geografia,2,Quale paese ha una bandiera orizzontale bicolore rosso e bianco?,Monaco,Malta,Bahrain,A,True
+geografia,3,Le seguenti province spagnole si trovano nella zona settentrionale della Spagna eccetto:,Navarra,Asturie,Murcia,C,True
+geografia,4,"Qual è il capoluogo di contea di King County, Washington?",Articolo,Seattle,Bellevue,B,True
+geografia,5,Quale dei paesi seguenti ha una bandiera con un leone giallo che fissa una spada su uno sfondo rosso scuro?,Sri Lanka,Kiribati,Scozia,A,True
+geografia,1,Le isole Andaman e Nicobar nel sud-est asiatico sono controllate da quale paese?,Thailandia,India,Vietnam,B,True
+geografia,2,Quale città è conosciuta come la capitale Rose del mondo?,"Tyler, Texas","Miami, Florida","San Diego, California",A,True
+geografia,3,Quali dei seguenti stati ex-Jugoslavia sono bloccati?,Montenegro,Serbia,Bosnia-Erzegovina,B,True
+geografia,4,Quale di questi non è un'isola che fa parte delle Filippine?,Java,Mindanao,Luzon,A,True
+geografia,5,Qual è l'insediamento umano più settentrionale con gli abitanti di tutto l'anno?,"Alert, Canada","Nagurskoye, Russia","Stazione McMurdo, Antartide",A,True

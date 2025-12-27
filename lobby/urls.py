@@ -12,4 +12,7 @@ urlpatterns = [
     path("stanza/<str:code>/start/", views.start_game, name="start_game"),
     path("stanza/<str:code>/gioco/", views.game_view, name="game_view"),
     path("stanza/<str:code>/state/", views.room_state, name="room_state"),
+    path("stanza/<str:code>/gioco/state/", views.game_state, name="game_state"),
+    path("stanza/<str:code>/gioco/scegli/", views.choose_question, name="choose_question"),
+    path("stanza/<str:code>/gioco/rispondi/", views.submit_answer, name="submit_answer"),
 ]

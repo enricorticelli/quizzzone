@@ -2,19 +2,766 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quizzzone • Gioco</title>
     <style>
-        body { margin:0; padding:0; background:#0f172a; color:#e2e8f0; font-family: Arial, sans-serif; display:flex; align-items:center; justify-content:center; min-height:100vh;}
-        .screen { text-align:center; max-width:520px; padding:24px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:16px; }
-        h1 { margin:0 0 8px; }
-        p { margin:0 0 12px; color:#94a3b8; }
+        @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap");
+        :root {
+            --bg: #0f172a;
+            --card: rgba(255, 255, 255, 0.06);
+            --border: rgba(255, 255, 255, 0.12);
+            --accent: #22d3ee;
+            --accent-2: #f97316;
+            --text: #e2e8f0;
+            --muted: #94a3b8;
+            --success: #22c55e;
+            --error: #ef4444;
+            --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+        }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Space Grotesk", "Segoe UI", sans-serif;
+            background: radial-gradient(circle at 12% 20%, rgba(34, 211, 238, 0.14), transparent 25%),
+                radial-gradient(circle at 80% 0%, rgba(249, 115, 22, 0.12), transparent 30%),
+                var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+        }
+        .page {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 28px 16px 48px;
+        }
+        .topbar {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            padding: 10px 14px;
+            box-shadow: var(--shadow);
+        }
+        .pill strong { letter-spacing: 0.08em; }
+        .pill .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+        .pill .dot.live { background: #22c55e; }
+        .pill .dot.wait { background: #f97316; }
+        h1 { margin: 0 0 4px; font-size: 28px; }
+        p { margin: 0; color: var(--muted); }
+        .layout {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 16px;
+        }
+        @media (max-width: 960px) {
+            .layout { grid-template-columns: 1fr; }
+            .topbar { align-items: flex-start; }
+        }
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 18px;
+            box-shadow: var(--shadow);
+        }
+        .question-card h2 { margin: 0 0 6px; }
+        .status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: var(--muted);
+        }
+        .question-text {
+            font-size: 20px;
+            line-height: 1.4;
+            margin: 8px 0 12px;
+        }
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(34,211,238,0.16);
+            color: var(--text);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 6px 10px;
+            margin-right: 6px;
+            font-size: 13px;
+        }
+        .scoreboard h2 { margin: 0 0 8px; }
+        .scores {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .score-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 12px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            background: rgba(255,255,255,0.04);
+        }
+        .score-row.me { border-color: var(--accent); }
+        .score-row .name { display: flex; align-items: center; gap: 10px; font-weight: 700; }
+        .score-row .points { font-size: 18px; }
+        .options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .options.options-large {
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+        .option-btn {
+            padding: 14px;
+            background: rgba(34,211,238,0.1);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 700;
+            color: var(--text);
+            width: 100%;
+            text-align: left;
+            font-size: 18px;
+        }
+        .option-btn:hover { border-color: var(--accent); }
+        .option-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        .muted { color: var(--muted); }
+        .notice {
+            padding: 10px 12px;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid var(--border);
+        }
+        .notice.error { border-color: rgba(239,68,68,0.6); color: #fecdd3; }
+        .notice.success { border-color: rgba(34,197,94,0.6); color: #bbf7d0; }
+        .progress {
+            font-size: 13px;
+            color: var(--muted);
+        }
+        .view-toggle {
+            margin-left: auto;
+            display: inline-flex;
+            gap: 6px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 6px;
+            border-radius: 12px;
+        }
+        .toggle-btn {
+            background: transparent;
+            border: 1px solid transparent;
+            color: var(--text);
+            padding: 8px 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 700;
+        }
+        .toggle-btn.active {
+            border-color: var(--accent);
+            background: rgba(34, 211, 238, 0.12);
+        }
+        .view-panel { display: none; }
+        body[data-view="common"] #common-view { display: block; }
+        body[data-view="player"] #player-view { display: block; }
+        .matrix-table-wrapper {
+            overflow-x: auto;
+            margin-top: 10px;
+        }
+        .matrix-table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+        .matrix-table th, .matrix-table td {
+            border: 1px solid var(--border);
+            padding: 10px;
+            text-align: center;
+        }
+        .matrix-table th {
+            background: rgba(255,255,255,0.05);
+            font-weight: 700;
+        }
+        .matrix-cell {
+            border-radius: 10px;
+            padding: 8px;
+            background: rgba(255,255,255,0.03);
+            min-height: 72px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            justify-content: center;
+        }
+        .matrix-cell .cell-title { font-weight: 700; }
+        .matrix-cell .cell-meta { font-size: 12px; color: var(--muted); }
+        .matrix-cell.clickable { cursor: pointer; background: rgba(34,211,238,0.08); }
+        .matrix-cell.status-active { border: 1px solid var(--accent); }
+        .matrix-cell.status-asked { opacity: 0.6; }
+        .matrix-cell.status-asked .cell-title { text-decoration: line-through; }
+        .matrix-cell .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255,255,255,0.06);
+            border-radius: 999px;
+            padding: 4px 8px;
+            font-size: 12px;
+        }
+        .matrix-cell .badge.success { color: var(--success); border: 1px solid rgba(34,197,94,0.6); }
+        .matrix-cell .badge.error { color: var(--error); border: 1px solid rgba(239,68,68,0.6); }
+        .result-lines { display: flex; flex-direction: column; gap: 6px; }
+        .result-lines strong { color: var(--text); }
+        .result-lines .countdown { color: var(--muted); }
+        .question-card .meta-line { margin-bottom: 6px; }
+        .question-card .meta-line .tag { margin-bottom: 6px; display: inline-flex; }
+        #player-grid-card { display: none; }
+        #player-scoreboard-card { display: block; }
+        .mini-label { font-size: 13px; color: var(--muted); margin-top: 8px; }
     </style>
 </head>
-<body>
-    <div class="screen">
-        <h1>Modalità gioco</h1>
-        <p>La partita per la stanza {{ room.code }} è iniziata. Qui comparirà l'interfaccia del quiz.</p>
-        <p class="muted">Schermata di prova in attesa del gioco vero.</p>
+<body data-view="player">
+    <div class="page" data-room="{{ room.code }}">
+        <div class="topbar">
+            <div>
+                <p class="muted">Stanza</p>
+                <h1>Codice {{ room.code }}</h1>
+                <p class="progress" id="progress-indicator"></p>
+            </div>
+            <div class="pill"><span class="dot live"></span><strong id="turn-indicator">Turno</strong></div>
+            <div class="pill"><span class="dot wait"></span><span>Classifica live sempre visibile</span></div>
+            <div class="view-toggle">
+                <button class="toggle-btn" data-mode="player">Dispositivo giocatore</button>
+                <button class="toggle-btn" data-mode="common">Schermo comune</button>
+            </div>
+        </div>
+
+        <div id="common-view" class="view-panel">
+            <div class="layout">
+                <section class="card question-card">
+                    <div class="status" id="status-line">In attesa...</div>
+                    <div id="question-meta" class="meta-line"></div>
+                    <div class="question-text" id="question-text">Nessuna domanda selezionata.</div>
+                    <div id="answer-feedback" class="notice muted">
+                        <div id="feedback-message"></div>
+                        <div class="result-lines">
+                            <div class="countdown" id="countdown-line"></div>
+                            <div id="result-line"></div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="card scoreboard" id="common-scoreboard-card">
+                    <div class="top">
+                        <h2>Classifica</h2>
+                        <p class="muted">Aggiornata in tempo reale</p>
+                    </div>
+                    <div class="scores" id="scoreboard"></div>
+                </section>
+            </div>
+
+            <section class="card question-matrix" id="grid-card" style="margin-top:16px;">
+                <div class="top">
+                    <h2>Mappa domande</h2>
+                    <p class="muted">Righe per materia, colonne per livello: 25 domande, una per cella.</p>
+                </div>
+                <div class="matrix-table-wrapper">
+                    <table class="matrix-table" id="question-table"></table>
+                </div>
+            </section>
+        </div>
+
+        <div id="player-view" class="view-panel">
+            <section class="card question-card">
+                <div class="status" id="player-status">Attesa turno...</div>
+                <div class="question-text" id="player-question">Quando tocca a te compariranno le risposte qui sotto.</div>
+                <div id="player-options" class="options options-large"></div>
+                <div id="player-info" class="notice muted"></div>
+            </section>
+
+            <section class="card question-matrix" id="player-grid-card" style="margin-top:12px;">
+                <div class="top">
+                    <h2>Scegli una domanda</h2>
+                    <p class="muted">Tocca una cella disponibile per scegliere materia e livello.</p>
+                </div>
+                <div class="matrix-table-wrapper">
+                    <table class="matrix-table" id="question-table-player"></table>
+                </div>
+            </section>
+
+            <section class="card scoreboard" id="player-scoreboard-card" style="margin-top:12px;">
+                <div class="top">
+                    <h2>Classifica</h2>
+                    <p class="muted">Quando non è il tuo turno vedi solo questo.</p>
+                </div>
+                <div class="scores" id="scoreboard-player"></div>
+            </section>
+        </div>
     </div>
+
+    <script>
+        const roomCode = document.querySelector(".page").dataset.room;
+        const stateUrl = "{{ state_url }}";
+        const chooseUrl = "{{ choose_url }}";
+        const answerUrl = "{{ answer_url }}";
+        const wsPath = `/ws/stanza/${roomCode}/gioco/`;
+        const viewButtons = document.querySelectorAll(".toggle-btn");
+        let socket;
+        let pollTimer;
+        let lastState = null;
+        let lastOutcomeId = null;
+        let countdownTimer = null;
+        let hideOutcomeTimer = null;
+        let viewMode = localStorage.getItem("quizzzone_view_mode") || "player";
+
+        function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(";").shift();
+        }
+
+        function setViewMode(mode) {
+            viewMode = mode;
+            document.body.dataset.view = mode;
+            viewButtons.forEach((btn) => btn.classList.toggle("active", btn.dataset.mode === mode));
+            localStorage.setItem("quizzzone_view_mode", mode);
+        }
+
+        viewButtons.forEach((btn) => {
+            btn.addEventListener("click", () => setViewMode(btn.dataset.mode));
+        });
+        setViewMode(viewMode);
+
+        function connectSocket() {
+            const scheme = window.location.protocol === "https:" ? "wss" : "ws";
+            socket = new WebSocket(`${scheme}://${window.location.host}${wsPath}`);
+            socket.onopen = () => {
+                if (pollTimer) {
+                    clearInterval(pollTimer);
+                    pollTimer = null;
+                }
+                socket.send("ping");
+            };
+            socket.onmessage = (event) => {
+                try {
+                    const data = JSON.parse(event.data);
+                    renderState(data);
+                } catch (e) {
+                    console.error("Dati websocket non validi", e);
+                }
+            };
+            socket.onclose = () => {
+                schedulePoll();
+                setTimeout(connectSocket, 2000);
+            };
+            socket.onerror = () => socket.close();
+        }
+
+        function schedulePoll() {
+            if (pollTimer) return;
+            pollTimer = setInterval(async () => {
+                try {
+                    const res = await fetch(stateUrl, { cache: "no-store" });
+                    if (res.ok) {
+                        const data = await res.json();
+                        renderState(data);
+                    }
+                } catch (_) {
+                }
+            }, 4000);
+        }
+
+        async function chooseQuestion(category, level) {
+            if (!lastState?.actions?.can_choose) return;
+            const formData = new URLSearchParams();
+            formData.append("category", category);
+            formData.append("difficulty", level);
+            await fetch(chooseUrl, {
+                method: "POST",
+                headers: {
+                    "X-CSRFToken": getCookie("csrftoken") || "",
+                },
+                body: formData,
+            });
+        }
+
+        async function submitAnswer(option) {
+            if (!lastState?.actions?.can_answer) return;
+            const formData = new URLSearchParams();
+            formData.append("option", option);
+            await fetch(answerUrl, {
+                method: "POST",
+                headers: {
+                    "X-CSRFToken": getCookie("csrftoken") || "",
+                },
+                body: formData,
+            });
+        }
+
+        function renderState(state) {
+            lastState = state;
+            if (state.status === "not_started") {
+                document.getElementById("status-line").textContent = "La partita non è più disponibile.";
+                return;
+            }
+            document.body.classList.toggle("can-choose", !!state.actions?.can_choose);
+            document.body.classList.toggle("can-answer", !!state.actions?.can_answer);
+            document.body.classList.toggle("game-over", !!state.game_over);
+
+            updateProgress(state);
+            updateScoreboard(state.scoreboard, "scoreboard");
+            updateScoreboard(state.scoreboard, "scoreboard-player");
+            renderQuestion(state);
+            renderQuestionTable(state, "question-table", false);
+            const playerCanChoose = state.actions?.can_choose && viewMode === "player";
+            renderQuestionTable(state, "question-table-player", playerCanChoose);
+            renderPlayerView(state, playerCanChoose);
+            handleOutcome(state);
+        }
+
+        function updateProgress(state) {
+            const progress = document.getElementById("progress-indicator");
+            const asked = state.asked_questions || 0;
+            const remaining = state.remaining_questions || 0;
+            progress.textContent = `${asked} domande giocate • ${remaining} rimanenti`;
+            const turnIndicator = document.getElementById("turn-indicator");
+            if (state.game_over) {
+                turnIndicator.textContent = "Partita conclusa";
+            } else if (state.current_player) {
+                turnIndicator.textContent = `Turno di ${state.current_player.nickname}`;
+            } else {
+                turnIndicator.textContent = "In attesa giocatori";
+            }
+        }
+
+        function updateScoreboard(entries, elementId) {
+            const board = document.getElementById(elementId);
+            if (!board) return;
+            board.innerHTML = "";
+            if (!entries || entries.length === 0) {
+                board.innerHTML = '<p class="muted">Nessun giocatore.</p>';
+                return;
+            }
+            entries.forEach((row, idx) => {
+                const div = document.createElement("div");
+                div.className = "score-row" + (row.is_me ? " me" : "");
+                div.innerHTML = `
+                    <div class="name"><span>${idx + 1}.</span> <span>${row.nickname}</span></div>
+                    <div class="points">${row.score} pt</div>
+                `;
+                board.appendChild(div);
+            });
+        }
+
+        function getRecentQuestionFromAnswer(lastAnswer) {
+            if (!lastAnswer || !lastAnswer.question) return null;
+            if (!lastAnswer.answered_at) return { question: lastAnswer.question, from: "last_answer", player: lastAnswer.player };
+            const answeredDate = new Date(lastAnswer.answered_at);
+            const ageSeconds = (Date.now() - answeredDate.getTime()) / 1000;
+            if (ageSeconds > 15) return null;
+            return { question: lastAnswer.question, from: "last_answer", player: lastAnswer.player };
+        }
+
+        function renderQuestion(state) {
+            const statusLine = document.getElementById("status-line");
+            const meta = document.getElementById("question-meta");
+            const text = document.getElementById("question-text");
+            const countdownLine = document.getElementById("countdown-line");
+            const resultLine = document.getElementById("result-line");
+            const feedback = document.getElementById("answer-feedback");
+            const feedbackMessage = document.getElementById("feedback-message");
+
+            meta.innerHTML = "";
+            countdownLine.textContent = "";
+            resultLine.textContent = "";
+            if (feedbackMessage) feedbackMessage.textContent = "";
+            feedback.className = "notice muted";
+
+            if (state.game_over) {
+                statusLine.textContent = "Partita finita.";
+                text.textContent = "Grazie per aver giocato!";
+                const winner = state.scoreboard?.[0];
+                if (winner) {
+                    feedback.className = "notice success";
+                    feedbackMessage.textContent = `Vince ${winner.nickname} con ${winner.score} punti.`;
+                }
+                return;
+            }
+
+            const questionData = state.question || getRecentQuestionFromAnswer(state.last_answer);
+            if (!questionData) {
+                statusLine.textContent = "Scegli materia e livello.";
+                text.textContent = "Nessuna domanda attiva al momento.";
+                feedbackMessage.textContent = state.actions?.can_choose
+                    ? "È il tuo turno: usa la tabella per selezionare una domanda."
+                    : "In attesa che il giocatore di turno scelga una domanda.";
+                return;
+            }
+
+            const question = questionData.question;
+            meta.innerHTML = `
+                <span class="tag">${question.category_label}</span>
+                <span class="tag">Livello ${question.difficulty}</span>
+            `;
+            text.textContent = question.text;
+            const source = questionData.from || (state.question ? "active" : "last_answer");
+            if (state.actions?.can_answer) {
+                statusLine.textContent = "Rispondi dal tuo dispositivo.";
+                feedbackMessage.textContent = "Solo il giocatore di turno vede le opzioni sul proprio telefono.";
+            } else if (source === "last_answer" && state.last_answer) {
+                statusLine.textContent = `Ultima domanda di ${state.last_answer.player?.nickname || "un giocatore"}.`;
+                feedbackMessage.textContent = "Mostro l'esito, la classifica resta visibile.";
+            } else if (state.current_player) {
+                statusLine.textContent = `Domanda scelta da ${state.current_player.nickname}.`;
+                feedbackMessage.textContent = "Attendi l'esito, la classifica rimane visibile.";
+            } else {
+                statusLine.textContent = "Domanda in corso.";
+                feedbackMessage.textContent = "Attendi l'esito, la classifica rimane visibile.";
+            }
+        }
+
+        function renderQuestionTable(state, tableId, allowSelection) {
+            const table = document.getElementById(tableId);
+            if (!table) return;
+            const grid = state.question_grid || {};
+            const levels = [1, 2, 3, 4, 5];
+            table.innerHTML = "";
+
+            const thead = document.createElement("thead");
+            const headRow = document.createElement("tr");
+            headRow.innerHTML = "<th>Materia</th>";
+            levels.forEach((level) => {
+                const th = document.createElement("th");
+                th.textContent = `Liv ${level}`;
+                headRow.appendChild(th);
+            });
+            thead.appendChild(headRow);
+            table.appendChild(thead);
+
+            const tbody = document.createElement("tbody");
+            Object.entries(grid).forEach(([category, levelsData]) => {
+                const row = document.createElement("tr");
+                const labelCell = document.createElement("th");
+                labelCell.textContent = labelForCategory(category);
+                row.appendChild(labelCell);
+                levels.forEach((level) => {
+                    const cellData = levelsData?.[level] || { status: "available", available: 0 };
+                    const td = document.createElement("td");
+                    const cell = document.createElement("div");
+                    cell.className = "matrix-cell status-" + cellData.status;
+                    const statusLabel = cellStatusLabel(cellData);
+                    cell.innerHTML = `
+                        <div class="cell-title">Livello ${level}</div>
+                        <div class="cell-meta">${statusLabel}</div>
+                    `;
+                    if (cellData.player?.nickname) {
+                        const badge = document.createElement("div");
+                        badge.className = "badge" + (cellData.was_correct ? " success" : cellData.was_correct === false ? " error" : "");
+                        const resultText = cellData.was_correct === true
+                            ? "Indovinata"
+                            : cellData.was_correct === false
+                                ? "Sbagliata"
+                                : "In gioco";
+                        badge.textContent = `${cellData.player.nickname} • ${resultText}`;
+                        cell.appendChild(badge);
+                    }
+                    td.appendChild(cell);
+                    const canPick = allowSelection && cellData.status === "available" && cellData.available > 0;
+                    if (canPick) {
+                        cell.classList.add("clickable");
+                        cell.onclick = () => chooseQuestion(category, level);
+                    }
+                    row.appendChild(td);
+                });
+                tbody.appendChild(row);
+            });
+            table.appendChild(tbody);
+        }
+
+        function cellStatusLabel(cellData) {
+            if (cellData.status === "active") return "In corso";
+            if (cellData.status === "asked") return "Giocata";
+            return cellData.available > 0 ? "Disponibile" : "Esaurita";
+        }
+
+        function renderPlayerView(state, playerCanChoose) {
+            const status = document.getElementById("player-status");
+            const question = document.getElementById("player-question");
+            const options = document.getElementById("player-options");
+            const info = document.getElementById("player-info");
+            const gridCard = document.getElementById("player-grid-card");
+            const scoreboardCard = document.getElementById("player-scoreboard-card");
+            const questionCard = document.querySelector("#player-view .question-card");
+
+            options.innerHTML = "";
+            info.textContent = "";
+            info.className = "notice muted";
+
+            if (state.actions?.can_answer && state.options) {
+                status.textContent = "È il tuo turno: scegli la risposta.";
+                question.textContent = "Vedi solo tu le opzioni: scegli e conferma.";
+                renderAnswerButtons(options, state.options);
+                info.textContent = "Bottoni grandi per il mobile. Dopo la scelta parte il timer.";
+                gridCard.style.display = "none";
+                scoreboardCard.style.display = "none";
+                questionCard.style.display = "block";
+                return;
+            }
+
+            if (playerCanChoose) {
+                status.textContent = "È il tuo turno: scegli materia e livello.";
+                question.textContent = "Tocca una cella disponibile nella tabella.";
+                info.textContent = "Ogni domanda può essere usata una sola volta.";
+                gridCard.style.display = "block";
+                scoreboardCard.style.display = "block";
+                questionCard.style.display = "block";
+                return;
+            }
+
+            status.textContent = "Non è il tuo turno";
+            question.textContent = "Guarda la classifica in tempo reale.";
+            info.textContent = "Quando tocca a te appariranno qui le risposte da scegliere.";
+            gridCard.style.display = "none";
+            scoreboardCard.style.display = "block";
+            questionCard.style.display = "none";
+        }
+
+        function renderAnswerButtons(container, options) {
+            Object.entries(options).forEach(([key, val]) => {
+                const btn = document.createElement("button");
+                btn.className = "option-btn";
+                btn.textContent = `${key}. ${val}`;
+                btn.onclick = () => submitAnswer(key);
+                container.appendChild(btn);
+            });
+        }
+
+        function handleOutcome(state) {
+            const lastAnswer = state.last_answer;
+            if (!lastAnswer) {
+                resetOutcome();
+                return;
+            }
+            const answeredAt = lastAnswer.answered_at ? new Date(lastAnswer.answered_at) : null;
+            const ageSeconds = answeredAt ? (Date.now() - answeredAt.getTime()) / 1000 : null;
+            const isFresh = ageSeconds === null || ageSeconds <= 15;
+            if (lastOutcomeId === lastAnswer.id) {
+                return;
+            }
+            lastOutcomeId = lastAnswer.id;
+            resetOutcomeTimers();
+            if (isFresh) {
+                startCountdown(lastAnswer);
+            } else {
+                showOutcome(lastAnswer);
+            }
+        }
+
+        function startCountdown(lastAnswer) {
+            const countdownLine = document.getElementById("countdown-line");
+            const resultLine = document.getElementById("result-line");
+            const feedback = document.getElementById("answer-feedback");
+            feedback.className = "notice";
+            let remaining = 3;
+            countdownLine.textContent = formatAnswerLine(lastAnswer) + ` • esito tra ${remaining}s`;
+            resultLine.textContent = "";
+            countdownTimer = setInterval(() => {
+                remaining -= 1;
+                if (remaining <= 0) {
+                    resetOutcomeTimers();
+                    showOutcome(lastAnswer);
+                } else {
+                    countdownLine.textContent = formatAnswerLine(lastAnswer) + ` • esito tra ${remaining}s`;
+                }
+            }, 1000);
+        }
+
+        function showOutcome(lastAnswer) {
+            const countdownLine = document.getElementById("countdown-line");
+            const resultLine = document.getElementById("result-line");
+            const feedback = document.getElementById("answer-feedback");
+            countdownLine.textContent = formatAnswerLine(lastAnswer);
+            const wasCorrect = lastAnswer.was_correct === true;
+            const wasWrong = lastAnswer.was_correct === false;
+            feedback.className = "notice " + (wasCorrect ? "success" : "error");
+            resultLine.textContent = wasCorrect ? "Domanda indovinata!" : "Risposta errata.";
+            hideOutcomeTimer = setTimeout(() => resetOutcome(true), 3200);
+            const myName = getMyNickname(lastState);
+            if (lastAnswer.player?.nickname && lastAnswer.player.nickname === myName) {
+                const info = document.getElementById("player-info");
+                info.className = "notice " + (wasCorrect ? "success" : "error");
+                info.textContent = wasCorrect ? "Hai indovinato!" : "Risposta sbagliata.";
+            }
+        }
+
+        function formatAnswerLine(lastAnswer) {
+            const playerName = lastAnswer.player?.nickname || "Giocatore";
+            const optionLabel = lastAnswer.selected_option_label || lastAnswer.selected_option || "";
+            const details = [];
+            if (lastAnswer.question?.category_label) details.push(lastAnswer.question.category_label);
+            if (lastAnswer.question?.difficulty) details.push(`Livello ${lastAnswer.question.difficulty}`);
+            const detailText = details.length ? ` (${details.join(" • ")})` : "";
+            return `${playerName} ha scelto "${optionLabel}"${detailText}`;
+        }
+
+        function resetOutcomeTimers() {
+            if (countdownTimer) clearInterval(countdownTimer);
+            if (hideOutcomeTimer) clearTimeout(hideOutcomeTimer);
+            countdownTimer = null;
+            hideOutcomeTimer = null;
+        }
+
+        function resetOutcome(keepLastId = false) {
+            resetOutcomeTimers();
+            if (!keepLastId) {
+                lastOutcomeId = null;
+            }
+            const countdownLine = document.getElementById("countdown-line");
+            const resultLine = document.getElementById("result-line");
+            const feedback = document.getElementById("answer-feedback");
+            const feedbackMessage = document.getElementById("feedback-message");
+            if (countdownLine) countdownLine.textContent = "";
+            if (resultLine) resultLine.textContent = "";
+            if (feedback) {
+                feedback.className = "notice muted";
+                if (feedbackMessage) feedbackMessage.textContent = "";
+            }
+        }
+
+        function getMyNickname(state) {
+            const me = state.scoreboard?.find((row) => row.is_me);
+            return me?.nickname;
+        }
+
+        function labelForCategory(category) {
+            const labels = {
+                "storia": "Storia",
+                "scienza": "Scienza",
+                "cultura": "Cultura generale",
+                "sport": "Sport",
+                "geografia": "Geografia",
+            };
+            return labels[category] || category;
+        }
+
+        connectSocket();
+    </script>
 </body>
 </html>

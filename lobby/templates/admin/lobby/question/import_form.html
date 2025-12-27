@@ -1,0 +1,17 @@
+{% extends "admin/base_site.html" %}
+{% load i18n admin_urls %}
+
+{% block content %}
+<h1>Importa domande da CSV</h1>
+<p>Carica un file CSV UTF-8 con le colonne: <code>category, difficulty, text, option_a, option_b, option_c, correct_option, is_active</code>.</p>
+<form method="post" enctype="multipart/form-data" novalidate>
+    {% csrf_token %}
+    <fieldset class="module aligned">
+        {{ form.as_p }}
+    </fieldset>
+    <div class="submit-row">
+        <input type="submit" value="Importa">
+        <a href="{% url 'admin:lobby_question_changelist' %}" class="button cancel-link">Annulla</a>
+    </div>
+</form>
+{% endblock %}

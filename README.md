@@ -28,7 +28,11 @@ pip install -r requirements.txt
 python manage.py migrate
 python manage.py runserver 0.0.0.0:8000
 ```
-Apri http://127.0.0.1:8000/.
+
+4) Deploy su tunnel Cloudflare (opzionale):
+```bash
+cloudflared tunnel --url http://localhost:8000
+```
 
 ## Variabili con .env
 Copia il file `.env.example` in `.env` e personalizza se serve:
