@@ -189,18 +189,20 @@ h1 {
 
 .icons-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(88px, 1fr));
+  gap: 8px;
   margin-bottom: 12px;
 }
 
 .icon-pill {
   display: flex;
   align-items: center;
-  gap: 10px;
+  justify-content: center;
+  gap: 6px;
+  flex-direction: column;
   border: 1px solid var(--border);
   border-radius: 12px;
-  padding: 8px 10px;
+  padding: 10px;
   background: rgba(255, 255, 255, 0.02);
 }
 
@@ -209,7 +211,11 @@ h1 {
 }
 
 .icon-emoji {
-  font-size: 22px;
+  font-size: 26px;
+}
+
+.icon-name {
+  display: none;
 }
 
 .icon-disabled {
@@ -345,7 +351,40 @@ h1 {
   }
 
   .icons-grid {
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(72px, 1fr));
+  }
+
+  .join-page .page {
+    padding: 18px 14px 22px;
+  }
+
+  .join-page .hero {
+    margin-bottom: 10px;
+  }
+
+  .join-page .hero__text h1 {
+    font-size: 22px;
+  }
+
+  .join-page .subtitle {
+    font-size: 14px;
+  }
+
+  .join-page .card {
+    padding: 14px;
+  }
+
+  .join-page .join-form label {
+    margin-bottom: 4px;
+  }
+
+  .join-page .join-card h2 {
+    font-size: 18px;
+  }
+
+  .join-page .primary-btn {
+    padding: 12px 14px;
+    font-size: 16px;
   }
 
   .players-card .players-grid {

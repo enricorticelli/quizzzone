@@ -17,6 +17,11 @@
             --success: #22c55e;
             --error: #ef4444;
             --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+            --cat-storia: #ef4444;
+            --cat-geografia: #22c55e;
+            --cat-scienza: #eab308;
+            --cat-cultura: #a855f7;
+            --cat-sport: #3b82f6;
         }
         * { box-sizing: border-box; }
         body {
@@ -51,6 +56,15 @@
             padding: 10px 14px;
             box-shadow: var(--shadow);
         }
+        .pill.button-pill {
+            color: var(--text);
+            cursor: pointer;
+            font-weight: 700;
+        }
+        .pill.button-pill:disabled {
+            opacity: 0.6;
+            cursor: default;
+        }
         .pill strong { letter-spacing: 0.08em; }
         .pill .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
         .pill .dot.live { background: #22c55e; }
@@ -62,8 +76,14 @@
             grid-template-columns: 1.2fr 0.8fr;
             gap: 16px;
         }
+        .common-layout {
+            display: grid;
+            grid-template-columns: 1.4fr 0.6fr;
+            gap: 16px;
+        }
         @media (max-width: 960px) {
             .layout { grid-template-columns: 1fr; }
+            .common-layout { grid-template-columns: 1fr; }
             .topbar { align-items: flex-start; }
         }
         .card {
@@ -83,9 +103,9 @@
             color: var(--muted);
         }
         .question-text {
-            font-size: 20px;
+            font-size: 30px;
             line-height: 1.4;
-            margin: 8px 0 12px;
+            margin: 10px 0 16px;
         }
         .tag {
             display: inline-flex;
@@ -123,9 +143,32 @@
             gap: 10px;
             margin-top: 10px;
         }
+        .options.options-public {
+            grid-template-columns: repeat(3, minmax(220px, 1fr));
+            margin-top: 16px;
+        }
+        @media (max-width: 900px) {
+            .options.options-public { grid-template-columns: 1fr; }
+        }
         .options.options-large {
             grid-template-columns: 1fr;
             gap: 12px;
+        }
+        .cat-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 12px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            background: rgba(255,255,255,0.04);
+            font-weight: 700;
+        }
+        .cat-chip .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
         }
         .option-btn {
             padding: 14px;
@@ -144,6 +187,35 @@
             opacity: 0.6;
             cursor: not-allowed;
         }
+        .option-pill {
+            padding: 12px 14px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: rgba(255,255,255,0.04);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            font-size: 18px;
+        }
+        .option-pill .key {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: rgba(34,211,238,0.15);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--border);
+        }
+        .option-pill.correct {
+            border-color: rgba(34,197,94,0.7);
+            background: rgba(34,197,94,0.15);
+        }
+        .option-pill.wrong {
+            border-color: rgba(239,68,68,0.7);
+            background: rgba(239,68,68,0.12);
+        }
         .muted { color: var(--muted); }
         .notice {
             padding: 10px 12px;
@@ -156,6 +228,33 @@
         .progress {
             font-size: 13px;
             color: var(--muted);
+        }
+        .toast-container {
+            position: fixed;
+            right: 18px;
+            top: 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 50;
+        }
+        .toast {
+            min-width: 240px;
+            max-width: 360px;
+            background: rgba(15, 23, 42, 0.95);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 12px 14px;
+            box-shadow: var(--shadow);
+            animation: toast-in 200ms ease-out;
+        }
+        .toast.success { border-color: rgba(34,197,94,0.7); }
+        .toast.error { border-color: rgba(239,68,68,0.7); }
+        .toast .title { font-weight: 800; margin-bottom: 4px; }
+        .toast .body { color: var(--muted); font-size: 14px; line-height: 1.4; }
+        @keyframes toast-in {
+            from { transform: translateY(10px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
         .view-toggle {
             margin-left: auto;
@@ -182,6 +281,7 @@
         .view-panel { display: none; }
         body[data-view="common"] #common-view { display: block; }
         body[data-view="player"] #player-view { display: block; }
+        body[data-view="player"] .topbar { display: none; }
         .matrix-table-wrapper {
             overflow-x: auto;
             margin-top: 10px;
@@ -233,7 +333,66 @@
         .question-card .meta-line { margin-bottom: 6px; }
         .question-card .meta-line .tag { margin-bottom: 6px; display: inline-flex; }
         #player-grid-card { display: none; }
-        #player-scoreboard-card { display: block; }
+        #player-view .question-card { text-align: center; }
+        #player-view .question-card .question-text { font-size: 18px; }
+        .player-grid { display: grid; gap: 12px; }
+        .cat-button {
+            border: 2px solid var(--border);
+            border-radius: 14px;
+            padding: 14px;
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--text);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            background: rgba(255,255,255,0.05);
+        }
+        .cat-button .meta { font-size: 14px; color: var(--muted); font-weight: 600; }
+        .cat-button:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+        .level-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 10px;
+        }
+        .level-button {
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            padding: 12px;
+            font-weight: 800;
+            font-size: 16px;
+            color: var(--text);
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            background: rgba(255,255,255,0.05);
+        }
+        .level-button:disabled {
+            opacity: 0.45;
+            cursor: not-allowed;
+        }
+        .back-button {
+            background: transparent;
+            color: var(--text);
+            border: 1px solid var(--border);
+            padding: 8px 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        .cat-storia { --cat-color: var(--cat-storia); }
+        .cat-geografia { --cat-color: var(--cat-geografia); }
+        .cat-scienza { --cat-color: var(--cat-scienza); }
+        .cat-cultura { --cat-color: var(--cat-cultura); }
+        .cat-sport { --cat-color: var(--cat-sport); }
+        .cat-colored {
+            border-color: color-mix(in srgb, var(--cat-color, var(--border)) 70%, transparent);
+            background: color-mix(in srgb, var(--cat-color, var(--card)) 14%, transparent);
+        }
         .mini-label { font-size: 13px; color: var(--muted); margin-top: 8px; }
     </style>
 </head>
@@ -246,25 +405,32 @@
                 <p class="progress" id="progress-indicator"></p>
             </div>
             <div class="pill"><span class="dot live"></span><strong id="turn-indicator">Turno</strong></div>
-            <div class="pill"><span class="dot wait"></span><span>Classifica live sempre visibile</span></div>
-            <div class="view-toggle">
-                <button class="toggle-btn" data-mode="player">Dispositivo giocatore</button>
-                <button class="toggle-btn" data-mode="common">Schermo comune</button>
-            </div>
+            <button class="pill button-pill" id="audio-toggle" type="button">Attiva audio</button>
         </div>
 
         <div id="common-view" class="view-panel">
-            <div class="layout">
-                <section class="card question-card">
-                    <div class="status" id="status-line">In attesa...</div>
-                    <div id="question-meta" class="meta-line"></div>
-                    <div class="question-text" id="question-text">Nessuna domanda selezionata.</div>
-                    <div id="answer-feedback" class="notice muted">
-                        <div id="feedback-message"></div>
-                        <div class="result-lines">
-                            <div class="countdown" id="countdown-line"></div>
-                            <div id="result-line"></div>
-                        </div>
+            <section class="card question-card">
+                <div class="status" id="status-line">In attesa...</div>
+                <div id="question-meta" class="meta-line"></div>
+                <div class="question-text" id="question-text">Nessuna domanda selezionata.</div>
+                <div id="public-options" class="options options-public"></div>
+                <div id="answer-feedback" class="notice muted">
+                    <div id="feedback-message"></div>
+                    <div class="result-lines">
+                        <div class="countdown" id="countdown-line"></div>
+                        <div id="result-line"></div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="common-layout" style="margin-top:16px;">
+                <section class="card question-matrix" id="grid-card">
+                    <div class="top">
+                        <h2>Mappa domande</h2>
+                        <p class="muted">Righe per materia, colonne per livello: 25 domande, una per cella.</p>
+                    </div>
+                    <div class="matrix-table-wrapper">
+                        <table class="matrix-table" id="question-table"></table>
                     </div>
                 </section>
 
@@ -276,22 +442,12 @@
                     <div class="scores" id="scoreboard"></div>
                 </section>
             </div>
-
-            <section class="card question-matrix" id="grid-card" style="margin-top:16px;">
-                <div class="top">
-                    <h2>Mappa domande</h2>
-                    <p class="muted">Righe per materia, colonne per livello: 25 domande, una per cella.</p>
-                </div>
-                <div class="matrix-table-wrapper">
-                    <table class="matrix-table" id="question-table"></table>
-                </div>
-            </section>
         </div>
 
         <div id="player-view" class="view-panel">
-            <section class="card question-card">
+            <section class="card question-card" id="player-main-card">
                 <div class="status" id="player-status">Attesa turno...</div>
-                <div class="question-text" id="player-question">Quando tocca a te compariranno le risposte qui sotto.</div>
+                <div class="question-text" id="player-question">In attesa del tuo turno.</div>
                 <div id="player-options" class="options options-large"></div>
                 <div id="player-info" class="notice muted"></div>
             </section>
@@ -299,22 +455,13 @@
             <section class="card question-matrix" id="player-grid-card" style="margin-top:12px;">
                 <div class="top">
                     <h2>Scegli una domanda</h2>
-                    <p class="muted">Tocca una cella disponibile per scegliere materia e livello.</p>
+                    <p class="muted">Prima scegli la materia, poi il livello disponibile.</p>
                 </div>
-                <div class="matrix-table-wrapper">
-                    <table class="matrix-table" id="question-table-player"></table>
-                </div>
-            </section>
-
-            <section class="card scoreboard" id="player-scoreboard-card" style="margin-top:12px;">
-                <div class="top">
-                    <h2>Classifica</h2>
-                    <p class="muted">Quando non è il tuo turno vedi solo questo.</p>
-                </div>
-                <div class="scores" id="scoreboard-player"></div>
+                <div class="player-grid" id="player-grid"></div>
             </section>
         </div>
     </div>
+    <div id="toast-container" class="toast-container"></div>
 
     <script>
         const roomCode = document.querySelector(".page").dataset.room;
@@ -322,14 +469,22 @@
         const chooseUrl = "{{ choose_url }}";
         const answerUrl = "{{ answer_url }}";
         const wsPath = `/ws/stanza/${roomCode}/gioco/`;
-        const viewButtons = document.querySelectorAll(".toggle-btn");
         let socket;
         let pollTimer;
+        let pingTimer;
         let lastState = null;
         let lastOutcomeId = null;
         let countdownTimer = null;
         let hideOutcomeTimer = null;
-        let viewMode = localStorage.getItem("quizzzone_view_mode") || "player";
+        let selectedCategory = null;
+        let audioContext = null;
+        let audioEnabled = false;
+        let viewMode = (() => {
+            const stored = localStorage.getItem("quizzzone_view_mode");
+            if (stored) return stored;
+            const isMobile = window.matchMedia("(max-width: 900px)").matches;
+            return isMobile ? "player" : "common";
+        })();
 
         function getCookie(name) {
             const value = `; ${document.cookie}`;
@@ -337,26 +492,62 @@
             if (parts.length === 2) return parts.pop().split(";").shift();
         }
 
+        function initAudio() {
+            if (audioContext) return;
+            const AudioCtx = window.AudioContext || window.webkitAudioContext;
+            if (!AudioCtx) return;
+            audioContext = new AudioCtx();
+            if (audioContext.state === "suspended") {
+                audioContext.resume();
+            }
+            audioEnabled = true;
+        }
+
+        function attachAudioUnlock() {
+            const unlock = () => {
+                initAudio();
+                const toggle = document.getElementById("audio-toggle");
+                if (toggle) {
+                    toggle.textContent = "Audio attivo";
+                    toggle.disabled = true;
+                }
+                document.removeEventListener("click", unlock);
+                document.removeEventListener("touchstart", unlock);
+                document.removeEventListener("keydown", unlock);
+            };
+            document.addEventListener("click", unlock, { once: true });
+            document.addEventListener("touchstart", unlock, { once: true });
+            document.addEventListener("keydown", unlock, { once: true });
+        }
+
         function setViewMode(mode) {
             viewMode = mode;
             document.body.dataset.view = mode;
-            viewButtons.forEach((btn) => btn.classList.toggle("active", btn.dataset.mode === mode));
             localStorage.setItem("quizzzone_view_mode", mode);
         }
 
-        viewButtons.forEach((btn) => {
-            btn.addEventListener("click", () => setViewMode(btn.dataset.mode));
-        });
         setViewMode(viewMode);
+        attachAudioUnlock();
+
+        const audioToggle = document.getElementById("audio-toggle");
+        if (audioToggle) {
+            audioToggle.addEventListener("click", () => {
+                initAudio();
+                audioToggle.textContent = "Audio attivo";
+                audioToggle.disabled = true;
+            });
+        }
 
         function connectSocket() {
             const scheme = window.location.protocol === "https:" ? "wss" : "ws";
             socket = new WebSocket(`${scheme}://${window.location.host}${wsPath}`);
             socket.onopen = () => {
-                if (pollTimer) {
-                    clearInterval(pollTimer);
-                    pollTimer = null;
-                }
+                if (pingTimer) clearInterval(pingTimer);
+                pingTimer = setInterval(() => {
+                    if (socket && socket.readyState === WebSocket.OPEN) {
+                        socket.send("ping");
+                    }
+                }, 3000);
                 socket.send("ping");
             };
             socket.onmessage = (event) => {
@@ -368,24 +559,29 @@
                 }
             };
             socket.onclose = () => {
-                schedulePoll();
+                if (pingTimer) {
+                    clearInterval(pingTimer);
+                    pingTimer = null;
+                }
                 setTimeout(connectSocket, 2000);
             };
             socket.onerror = () => socket.close();
         }
 
-        function schedulePoll() {
-            if (pollTimer) return;
-            pollTimer = setInterval(async () => {
-                try {
-                    const res = await fetch(stateUrl, { cache: "no-store" });
-                    if (res.ok) {
-                        const data = await res.json();
-                        renderState(data);
-                    }
-                } catch (_) {
+        async function refreshState() {
+            try {
+                const res = await fetch(stateUrl, { cache: "no-store" });
+                if (res.ok) {
+                    const data = await res.json();
+                    renderState(data);
                 }
-            }, 4000);
+            } catch (_) {
+            }
+        }
+
+        function startPolling() {
+            if (pollTimer) return;
+            pollTimer = setInterval(refreshState, 2500);
         }
 
         async function chooseQuestion(category, level) {
@@ -393,26 +589,38 @@
             const formData = new URLSearchParams();
             formData.append("category", category);
             formData.append("difficulty", level);
-            await fetch(chooseUrl, {
+            const res = await fetch(chooseUrl, {
                 method: "POST",
                 headers: {
                     "X-CSRFToken": getCookie("csrftoken") || "",
                 },
                 body: formData,
             });
+            if (res.ok) {
+                const data = await res.json();
+                renderState(data);
+            } else {
+                refreshState();
+            }
         }
 
         async function submitAnswer(option) {
             if (!lastState?.actions?.can_answer) return;
             const formData = new URLSearchParams();
             formData.append("option", option);
-            await fetch(answerUrl, {
+            const res = await fetch(answerUrl, {
                 method: "POST",
                 headers: {
                     "X-CSRFToken": getCookie("csrftoken") || "",
                 },
                 body: formData,
             });
+            if (res.ok) {
+                const data = await res.json();
+                renderState(data);
+            } else {
+                refreshState();
+            }
         }
 
         function renderState(state) {
@@ -421,17 +629,18 @@
                 document.getElementById("status-line").textContent = "La partita non è più disponibile.";
                 return;
             }
+            if (!state.actions?.can_choose) {
+                selectedCategory = null;
+            }
             document.body.classList.toggle("can-choose", !!state.actions?.can_choose);
             document.body.classList.toggle("can-answer", !!state.actions?.can_answer);
             document.body.classList.toggle("game-over", !!state.game_over);
 
             updateProgress(state);
             updateScoreboard(state.scoreboard, "scoreboard");
-            updateScoreboard(state.scoreboard, "scoreboard-player");
             renderQuestion(state);
             renderQuestionTable(state, "question-table", false);
             const playerCanChoose = state.actions?.can_choose && viewMode === "player";
-            renderQuestionTable(state, "question-table-player", playerCanChoose);
             renderPlayerView(state, playerCanChoose);
             handleOutcome(state);
         }
@@ -487,6 +696,7 @@
             const resultLine = document.getElementById("result-line");
             const feedback = document.getElementById("answer-feedback");
             const feedbackMessage = document.getElementById("feedback-message");
+            renderPublicOptions(null);
 
             meta.innerHTML = "";
             countdownLine.textContent = "";
@@ -515,7 +725,7 @@
                 return;
             }
 
-            const question = questionData.question;
+            const question = questionData.question || questionData;
             meta.innerHTML = `
                 <span class="tag">${question.category_label}</span>
                 <span class="tag">Livello ${question.difficulty}</span>
@@ -524,17 +734,46 @@
             const source = questionData.from || (state.question ? "active" : "last_answer");
             if (state.actions?.can_answer) {
                 statusLine.textContent = "Rispondi dal tuo dispositivo.";
-                feedbackMessage.textContent = "Solo il giocatore di turno vede le opzioni sul proprio telefono.";
+                feedbackMessage.textContent = "";
             } else if (source === "last_answer" && state.last_answer) {
                 statusLine.textContent = `Ultima domanda di ${state.last_answer.player?.nickname || "un giocatore"}.`;
                 feedbackMessage.textContent = "Mostro l'esito, la classifica resta visibile.";
             } else if (state.current_player) {
                 statusLine.textContent = `Domanda scelta da ${state.current_player.nickname}.`;
-                feedbackMessage.textContent = "Attendi l'esito, la classifica rimane visibile.";
+                feedbackMessage.textContent = "";
             } else {
                 statusLine.textContent = "Domanda in corso.";
-                feedbackMessage.textContent = "Attendi l'esito, la classifica rimane visibile.";
+                feedbackMessage.textContent = "";
             }
+            const publicOpts = state.public_options || state.last_answer?.options || null;
+            const answerContext = state.public_options ? null : state.last_answer || null;
+            renderPublicOptions(publicOpts, answerContext);
+        }
+
+        function renderPublicOptions(options, lastAnswer) {
+            const container = document.getElementById("public-options");
+            if (!container) return;
+            container.innerHTML = "";
+            if (!options) {
+                container.style.display = "none";
+                return;
+            }
+            container.style.display = "grid";
+            const selected = lastAnswer?.selected_option || null;
+            const correct = lastAnswer?.correct_option || null;
+            const wasCorrect = lastAnswer?.was_correct === true;
+            Object.entries(options).forEach(([key, val]) => {
+                const pill = document.createElement("div");
+                pill.className = "option-pill";
+                if (selected && key === selected) {
+                    pill.classList.add(wasCorrect ? "correct" : "wrong");
+                }
+                if (!wasCorrect && correct && key === correct) {
+                    pill.classList.add("correct");
+                }
+                pill.innerHTML = `<span class="key">${key}</span><span>${val}</span>`;
+                container.appendChild(pill);
+            });
         }
 
         function renderQuestionTable(state, tableId, allowSelection) {
@@ -560,12 +799,14 @@
                 const row = document.createElement("tr");
                 const labelCell = document.createElement("th");
                 labelCell.textContent = labelForCategory(category);
+                applyCategoryStyle(labelCell, category, 0.12, 0.5);
                 row.appendChild(labelCell);
                 levels.forEach((level) => {
                     const cellData = levelsData?.[level] || { status: "available", available: 0 };
                     const td = document.createElement("td");
                     const cell = document.createElement("div");
                     cell.className = "matrix-cell status-" + cellData.status;
+                    applyCategoryStyle(cell, category, 0.12, 0.7);
                     const statusLabel = cellStatusLabel(cellData);
                     cell.innerHTML = `
                         <div class="cell-title">Livello ${level}</div>
@@ -595,9 +836,89 @@
             table.appendChild(tbody);
         }
 
+        function renderCategoryPicker(state) {
+            const gridEl = document.getElementById("player-grid");
+            if (!gridEl) return;
+            gridEl.innerHTML = "";
+            const available = state.available || {};
+            const categories = Object.keys(available);
+
+            if (selectedCategory) {
+                const backBtn = document.createElement("button");
+                backBtn.type = "button";
+                backBtn.className = "back-button";
+                backBtn.textContent = "← Torna alle materie";
+                backBtn.onclick = () => {
+                    selectedCategory = null;
+                    renderCategoryPicker(state);
+                };
+                gridEl.appendChild(backBtn);
+                renderLevelPicker(state, selectedCategory);
+                return;
+            }
+
+            if (!categories.length) {
+                const p = document.createElement("p");
+                p.className = "muted";
+                p.textContent = "Nessuna domanda disponibile.";
+                gridEl.appendChild(p);
+                return;
+            }
+
+            const list = document.createElement("div");
+            list.className = "player-grid";
+
+            categories.forEach((category) => {
+                const levels = available[category] || {};
+                const total = Object.values(levels).reduce((acc, val) => acc + (val || 0), 0);
+                const btn = document.createElement("button");
+                btn.type = "button";
+                btn.className = `cat-button cat-${category}`;
+                btn.disabled = total <= 0;
+                btn.innerHTML = `
+                    <span>${labelForCategory(category)}</span>
+                    <span class="meta">${total} rimanenti</span>
+                `;
+                applyCategoryStyle(btn, category);
+                if (total > 0) {
+                    btn.onclick = () => {
+                        selectedCategory = category;
+                        renderCategoryPicker(state);
+                    };
+                }
+                list.appendChild(btn);
+            });
+
+            gridEl.appendChild(list);
+        }
+
+        function renderLevelPicker(state, category) {
+            const gridEl = document.getElementById("player-grid");
+            const levels = [1, 2, 3, 4, 5];
+            const available = state.available?.[category] || {};
+            const wrap = document.createElement("div");
+            wrap.className = "level-grid";
+
+            levels.forEach((level) => {
+                const rem = available[level] || 0;
+                const btn = document.createElement("button");
+                btn.type = "button";
+                btn.className = `level-button cat-${category}`;
+                btn.disabled = rem <= 0;
+                btn.textContent = `Livello ${level} (${rem})`;
+                applyCategoryStyle(btn, category);
+                if (rem > 0) {
+                    btn.onclick = () => chooseQuestion(category, level);
+                }
+                wrap.appendChild(btn);
+            });
+
+            gridEl.appendChild(wrap);
+        }
+
         function cellStatusLabel(cellData) {
             if (cellData.status === "active") return "In corso";
-            if (cellData.status === "asked") return "Giocata";
+            if (cellData.status === "asked") return "";
             return cellData.available > 0 ? "Disponibile" : "Esaurita";
         }
 
@@ -607,40 +928,38 @@
             const options = document.getElementById("player-options");
             const info = document.getElementById("player-info");
             const gridCard = document.getElementById("player-grid-card");
-            const scoreboardCard = document.getElementById("player-scoreboard-card");
-            const questionCard = document.querySelector("#player-view .question-card");
+            const questionCard = document.getElementById("player-main-card");
 
             options.innerHTML = "";
+            options.style.display = "none";
             info.textContent = "";
             info.className = "notice muted";
+            info.style.display = "none";
+            gridCard.style.display = "none";
+            questionCard.style.display = "block";
 
             if (state.actions?.can_answer && state.options) {
                 status.textContent = "È il tuo turno: scegli la risposta.";
-                question.textContent = "Vedi solo tu le opzioni: scegli e conferma.";
+                question.textContent = "Tocca una delle opzioni qui sotto.";
                 renderAnswerButtons(options, state.options);
-                info.textContent = "Bottoni grandi per il mobile. Dopo la scelta parte il timer.";
-                gridCard.style.display = "none";
-                scoreboardCard.style.display = "none";
-                questionCard.style.display = "block";
+                options.style.display = "grid";
+                info.textContent = "Dopo la scelta l'esito appare sullo schermo principale.";
+                info.style.display = "block";
                 return;
             }
 
             if (playerCanChoose) {
-                status.textContent = "È il tuo turno: scegli materia e livello.";
-                question.textContent = "Tocca una cella disponibile nella tabella.";
-                info.textContent = "Ogni domanda può essere usata una sola volta.";
+                questionCard.style.display = "none";
                 gridCard.style.display = "block";
-                scoreboardCard.style.display = "block";
-                questionCard.style.display = "block";
+                renderCategoryPicker(state);
                 return;
             }
 
-            status.textContent = "Non è il tuo turno";
-            question.textContent = "Guarda la classifica in tempo reale.";
-            info.textContent = "Quando tocca a te appariranno qui le risposte da scegliere.";
+            status.textContent = "In attesa del tuo turno";
+            question.textContent = "Resta su questa schermata.";
+            info.textContent = "";
             gridCard.style.display = "none";
-            scoreboardCard.style.display = "block";
-            questionCard.style.display = "none";
+            questionCard.style.display = "block";
         }
 
         function renderAnswerButtons(container, options) {
@@ -656,22 +975,16 @@
         function handleOutcome(state) {
             const lastAnswer = state.last_answer;
             if (!lastAnswer) {
-                resetOutcome();
                 return;
             }
-            const answeredAt = lastAnswer.answered_at ? new Date(lastAnswer.answered_at) : null;
-            const ageSeconds = answeredAt ? (Date.now() - answeredAt.getTime()) / 1000 : null;
-            const isFresh = ageSeconds === null || ageSeconds <= 15;
             if (lastOutcomeId === lastAnswer.id) {
                 return;
             }
             lastOutcomeId = lastAnswer.id;
-            resetOutcomeTimers();
-            if (isFresh) {
-                startCountdown(lastAnswer);
-            } else {
-                showOutcome(lastAnswer);
-            }
+            const wasCorrect = lastAnswer.was_correct === true;
+            const title = wasCorrect ? "Risposta corretta" : "Risposta errata";
+            const points = typeof lastAnswer.points === "number" ? ` (+${lastAnswer.points} pt)` : "";
+            showToast(title + points, formatAnswerLine(lastAnswer), wasCorrect ? "success" : "error");
         }
 
         function startCountdown(lastAnswer) {
@@ -721,6 +1034,38 @@
             return `${playerName} ha scelto "${optionLabel}"${detailText}`;
         }
 
+        function showToast(title, body, tone = "success") {
+            const container = document.getElementById("toast-container");
+            if (!container) return;
+            const toast = document.createElement("div");
+            toast.className = `toast ${tone}`;
+            toast.innerHTML = `
+                <div class="title">${title}</div>
+                <div class="body">${body}</div>
+            `;
+            container.appendChild(toast);
+            playTone(tone);
+            setTimeout(() => {
+                toast.remove();
+            }, 4200);
+        }
+
+        function playTone(tone) {
+            if (!audioEnabled || !audioContext) return;
+            const now = audioContext.currentTime;
+            const osc = audioContext.createOscillator();
+            const gain = audioContext.createGain();
+            const isSuccess = tone === "success";
+            osc.type = "sine";
+            osc.frequency.setValueAtTime(isSuccess ? 880 : 220, now);
+            gain.gain.setValueAtTime(0.0001, now);
+            gain.gain.exponentialRampToValueAtTime(0.08, now + 0.02);
+            gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.25);
+            osc.connect(gain).connect(audioContext.destination);
+            osc.start(now);
+            osc.stop(now + 0.3);
+        }
+
         function resetOutcomeTimers() {
             if (countdownTimer) clearInterval(countdownTimer);
             if (hideOutcomeTimer) clearTimeout(hideOutcomeTimer);
@@ -750,6 +1095,34 @@
             return me?.nickname;
         }
 
+        function categoryColor(category) {
+            const colors = {
+                "storia": "#ef4444",
+                "geografia": "#22c55e",
+                "scienza": "#eab308",
+                "cultura": "#a855f7",
+                "sport": "#3b82f6",
+            };
+            return colors[category] || "#22d3ee";
+        }
+
+        function hexToRgba(hex, alpha) {
+            const clean = hex.replace("#", "");
+            const full = clean.length === 3 ? clean.split("").map((c) => c + c).join("") : clean;
+            const num = parseInt(full, 16);
+            const r = (num >> 16) & 255;
+            const g = (num >> 8) & 255;
+            const b = num & 255;
+            return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+        }
+
+        function applyCategoryStyle(element, category, bgAlpha = 0.14, borderAlpha = 0.5) {
+            if (!element) return;
+            const color = categoryColor(category);
+            element.style.borderColor = hexToRgba(color, borderAlpha);
+            element.style.background = hexToRgba(color, bgAlpha);
+        }
+
         function labelForCategory(category) {
             const labels = {
                 "storia": "Storia",
@@ -762,6 +1135,7 @@
         }
 
         connectSocket();
+        startPolling();
     </script>
 </body>
 </html>

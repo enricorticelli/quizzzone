@@ -1,4 +1,5 @@
 import base64
+import logging
 import random
 from io import BytesIO
 
@@ -19,6 +20,7 @@ from .models import Game, GamePlayer, GameQuestion, GameTurn, Player, Question, 
 MAX_PLAYERS = 10
 REQUIRED_COMBINATIONS = [(category, level) for category, _ in Question.CATEGORY_CHOICES for level in range(1, 6)]
 QUESTIONS_PER_GAME = len(REQUIRED_COMBINATIONS)
+logger = logging.getLogger(__name__)
 
 
 def broadcast_room_state(room):
@@ -58,7 +60,12 @@ def broadcast_room_state(room):
 def broadcast_game_state(room):
     channel_layer = get_channel_layer()
     if channel_layer is None:
+        logger.warning("broadcast_game_state skipped: no channel layer", extra={"room": room.code})
         return
+    logger.warning(
+        "Broadcasting game state",
+        extra={"room": room.code, "ts": timezone.now().isoformat(), "group": f"room_{room.code}"},
+    )
     async_to_sync(channel_layer.group_send)(
         f"room_{room.code}",
         {
@@ -386,9 +393,21 @@ def choose_question(request, code):
     room = get_object_or_404(Room, code=code)
     game = get_object_or_404(Game, room=room)
     if game.state == Game.STATE_FINISHED:
+        logger.warning(
+            "choose_question rejected: game finished",
+            extra={"room": room.code, "session": request.session.session_key},
+        )
         return JsonResponse({"error": "La partita è già terminata."}, status=400)
     current_player = game.current_player
     if not current_player or current_player.session_key != request.session.session_key:
+        logger.info(
+            "choose_question rejected: not current player",
+            extra={
+                "room": room.code,
+                "session": request.session.session_key,
+                "current_player": getattr(current_player, "session_key", None),
+            },
+        )
         return JsonResponse({"error": "Non è il tuo turno."}, status=403)
 
     category = request.POST.get("category")
@@ -396,14 +415,26 @@ def choose_question(request, code):
     try:
         difficulty = int(difficulty)
     except (TypeError, ValueError):
+        logger.warning(
+            "choose_question bad difficulty",
+            extra={"room": room.code, "session": request.session.session_key, "category": category, "raw": difficulty},
+        )
         return JsonResponse({"error": "Livello non valido."}, status=400)
 
     if category not in dict(Question.CATEGORY_CHOICES):
+        logger.warning(
+            "choose_question invalid category",
+            extra={"room": room.code, "session": request.session.session_key, "category": category},
+        )
         return JsonResponse({"error": "Materia non valida."}, status=400)
     if difficulty not in range(1, 6):
         return JsonResponse({"error": "Livello non valido."}, status=400)
 
     if game.state != Game.STATE_CHOOSING:
+        logger.info(
+            "choose_question rejected: game not choosing",
+            extra={"room": room.code, "state": game.state, "session": request.session.session_key},
+        )
         return JsonResponse({"error": "C'è già una domanda attiva."}, status=400)
 
     with transaction.atomic():
@@ -416,11 +447,26 @@ def choose_question(request, code):
         game_question = qs.first()
         question = game_question.question if game_question else None
         if not question:
+            logger.info(
+                "choose_question no question available",
+                extra={"room": room.code, "category": category, "difficulty": difficulty},
+            )
             return JsonResponse({"error": "Nessuna domanda disponibile per questa materia/livello."}, status=400)
         turn = GameTurn.objects.create(game=game, player=current_player, question=question)
         game.current_turn = turn
         game.state = Game.STATE_ANSWERING
         game.save(update_fields=["current_turn", "state"])
+        logger.info(
+            "choose_question OK",
+            extra={
+                "room": room.code,
+                "category": category,
+                "difficulty": difficulty,
+                "question_id": question.id,
+                "turn_id": turn.id,
+                "player": current_player.nickname,
+            },
+        )
 
     broadcast_game_state(room)
     return JsonResponse(build_game_state(room, session_key=request.session.session_key))
@@ -433,17 +479,37 @@ def submit_answer(request, code):
     game = get_object_or_404(Game, room=room)
     session_key = request.session.session_key
     if game.state != Game.STATE_ANSWERING or not game.current_turn:
+        logger.info(
+            "submit_answer rejected: no active question",
+            extra={"room": room.code, "state": game.state, "session": session_key},
+        )
         return JsonResponse({"error": "Nessuna domanda attiva."}, status=400)
     if not game.current_player or game.current_player.session_key != session_key:
+        logger.info(
+            "submit_answer rejected: not current player",
+            extra={
+                "room": room.code,
+                "session": session_key,
+                "current_player": getattr(game.current_player, "session_key", None),
+            },
+        )
         return JsonResponse({"error": "Non puoi rispondere, non è il tuo turno."}, status=403)
 
     selected = request.POST.get("option")
     if selected not in dict(Question.OPTION_CHOICES):
+        logger.warning(
+            "submit_answer invalid option",
+            extra={"room": room.code, "session": session_key, "selected": selected},
+        )
         return JsonResponse({"error": "Opzione non valida."}, status=400)
 
     with transaction.atomic():
         turn = GameTurn.objects.select_for_update().get(pk=game.current_turn_id)
         if turn.selected_option:
+            logger.info(
+                "submit_answer rejected: already answered",
+                extra={"room": room.code, "turn_id": turn.id, "session": session_key},
+            )
             return JsonResponse({"error": "Hai già risposto a questa domanda."}, status=400)
         turn.selected_option = selected
         correct = selected == turn.question.correct_option
@@ -455,6 +521,18 @@ def submit_answer(request, code):
 
         if points:
             GamePlayer.objects.filter(game=game, player=turn.player).update(score=F("score") + points)
+        logger.info(
+            "submit_answer recorded",
+            extra={
+                "room": room.code,
+                "turn_id": turn.id,
+                "question_id": turn.question_id,
+                "player": turn.player.nickname,
+                "selected": selected,
+                "correct": correct,
+                "points": points,
+            },
+        )
 
         remaining_questions = (
             GameQuestion.objects.filter(game=game)
@@ -471,7 +549,11 @@ def submit_answer(request, code):
         else:
             game.state = Game.STATE_CHOOSING
             game.save(update_fields=["state", "current_turn"])
-            game.rotate_to_next_player(only_on_wrong=True, was_correct=correct)
+            game.rotate_to_next_player()
+        logger.debug(
+            "submit_answer next_state",
+            extra={"room": room.code, "state": game.state, "remaining": remaining_questions},
+        )
 
     broadcast_game_state(room)
     return JsonResponse(build_game_state(room, session_key=session_key))
@@ -494,6 +576,7 @@ def build_game_state(room, session_key=None):
         "game_over": False,
         "question_grid": {},
         "last_answer": None,
+        "public_options": None,
     }
     game = getattr(room, "game", None)
     if not room.started or not game:
@@ -550,6 +633,7 @@ def build_game_state(room, session_key=None):
             "difficulty": turn.question.difficulty,
             "text": turn.question.text,
         }
+        payload["public_options"] = turn.question.get_options()
         if current_player and current_player.session_key == session_key:
             payload["options"] = turn.question.get_options()
 
@@ -643,6 +727,8 @@ def get_last_answer(game):
         },
         "selected_option": last_turn.selected_option,
         "selected_option_label": options.get(last_turn.selected_option),
+        "options": options,
+        "correct_option": last_turn.question.correct_option,
         "was_correct": last_turn.was_correct,
         "answered_at": last_turn.answered_at.isoformat() if last_turn.answered_at else None,
         "points": last_turn.points_awarded,

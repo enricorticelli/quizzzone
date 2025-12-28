@@ -8,6 +8,9 @@ from django.urls import reverse
 from .forms import ICON_EMOJIS, ICON_LABELS
 from .models import Room
 from .views import MAX_PLAYERS, build_game_state
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 class RoomConsumer(AsyncWebsocketConsumer):
@@ -24,6 +27,7 @@ class RoomConsumer(AsyncWebsocketConsumer):
     async def receive(self, text_data=None, bytes_data=None):
         # Support manual ping from client.
         if text_data == "ping":
+            logger.debug("RoomConsumer ping", extra={"room": self.code})
             await self.send_room_state()
 
     async def send_room_state(self):
@@ -97,12 +101,14 @@ class GameConsumer(AsyncWebsocketConsumer):
 
     async def receive(self, text_data=None, bytes_data=None):
         if text_data == "ping":
+            logger.debug("GameConsumer ping", extra={"room": self.code})
             await self.send_game_state()
 
     async def room_update(self, event):
         await self.send_game_state()
 
     async def game_update(self, event):
+        logger.warning("GameConsumer game_update", extra={"room": self.code, "event": event.get("type")})
         await self.send_game_state()
 
     async def send_game_state(self):
@@ -112,6 +118,10 @@ class GameConsumer(AsyncWebsocketConsumer):
             return
         session_key = await self.get_session_key()
         data = await sync_to_async(build_game_state)(room, session_key=session_key)
+        logger.warning(
+            "GameConsumer send_game_state",
+            extra={"room": self.code, "session": session_key, "state": data.get("status")},
+        )
         await self.send(text_data=json.dumps(data))
 
     @database_sync_to_async

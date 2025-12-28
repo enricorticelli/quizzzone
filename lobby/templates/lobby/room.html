@@ -45,35 +45,28 @@
         </header>
 
         <main class="grid">
-            <section class="card qr-card">
+            <section class="card qr-card full-width">
                 <div class="card__header">
-                    <h2>Invita</h2>
-                    <p class="muted">Scansiona il QR oppure vai su <strong>{{ entry_url }}</strong> e inserisci codice e nickname.</p>
-                </div>
-                <div class="qr-wrapper">
-                    <img src="{{ qr_data_url }}" alt="QR code per entrare" class="qr-image">
-                    <div class="join-link">
-                        <p class="muted">Chi è già entrato può riaprire la pagina e ricollegarsi con lo stesso dispositivo.</p>
-                    </div>
-                </div>
-            </section>
-
-            <section class="card join-card">
-                <div class="card__header">
-                    <h2>Come entrare</h2>
-                    <p class="muted">Inquadra il QR o apri il link su smartphone per scegliere nickname e icona.</p>
+                    <h2>Invita e come entrare</h2>
                     {% if current_player %}
                         <p class="muted success">Sei dentro come <strong>{{ current_player.nickname }}</strong> ({{ icon_emoji|get_item:current_player.icon }}).</p>
                     {% elif is_full %}
                         <p class="muted error">Stanza piena. Aspetta che qualcuno esca.</p>
                     {% endif %}
                 </div>
+                <div class="qr-wrapper">
+                    <img src="{{ qr_data_url }}" alt="QR code per entrare" class="qr-image">
+                    <div class="join-link">
+                        <p class="muted">Scansiona il QR oppure vai su</p>
+                        <p><strong>{{ entry_url }}</strong></p>
+                        <p class="muted">e inserisci il codice stanza <strong>{{ room.code }}</strong></p>
+                    </div>
+                </div>
             </section>
 
             <section class="card players-card">
                 <div class="card__header">
                     <h2 id="players-counter">Giocatori ({{ players_count }}/{{ max_players }})</h2>
-                    <p class="muted">Niente nomi o icone duplicate.</p>
                 </div>
                 <div class="players-grid" id="players-grid">
                     {% if players %}
